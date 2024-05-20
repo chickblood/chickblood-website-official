@@ -84,10 +84,13 @@ function LandingPage() {
           >
             {/* ---------- Input Box ---------- */}
             <ThemeProvider theme={customTheme(outerTheme)}>
-              <TextField
-                label="Type Your Question"
-                onChange={handleInputChange}
-              />
+              <Box width={"20%"}>
+                <TextField
+                  label="Type Your Question"
+                  onChange={handleInputChange}
+                  fullWidth
+                />
+              </Box>
             </ThemeProvider>
           </Box>
           <Box
