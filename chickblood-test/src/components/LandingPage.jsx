@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
 import { useNavigate } from "react-router-dom";
 
+/* ---------- custom buttom color palette ---------- */
 const buttonTheme = createTheme({
   palette: {
     ochre: {
@@ -15,6 +16,7 @@ const buttonTheme = createTheme({
   },
 });
 
+/* ---------- custom input text field theme ---------- */
 const customTheme = (outerTheme) =>
   createTheme({
     palette: {
@@ -63,6 +65,15 @@ const customTheme = (outerTheme) =>
     },
   });
 
+/* ---------- main component LandingPage here ---------- */
+/*
+  Landing Page queries user input which later translates to some sticky
+  notes on the story borad.
+
+  @todo p5.js custom background
+  @todo user flow TBD. Type your question is counter-intuitive.
+  @todo mongodbInsert to be implemented. Currently the user input is logged to console.
+*/
 function LandingPage() {
   const outerTheme = useTheme();
   const [input, setInput] = useState("");
