@@ -1,10 +1,22 @@
-import React from "react";
-import { Box, Grid, TextField } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, Grid, Stack, TextField } from "@mui/material";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
+import { useNavigate } from "react-router-dom";
 
-// First Layer, type your question
+/* ---------- custom buttom color palette ---------- */
+const buttonTheme = createTheme({
+  palette: {
+    ochre: {
+      main: "#E3D026",
+      light: "#E9DB5D",
+      dark: "#A29415",
+      contrastText: "#242105",
+    },
+  },
+});
 
+/* ---------- custom input text field theme ---------- */
 const customTheme = (outerTheme) =>
   createTheme({
     palette: {
@@ -37,8 +49,8 @@ const customTheme = (outerTheme) =>
             },
           },
           input: {
-            fontSize: "0.8rem", // Change this to your desired font size
-            fontFamily: "monospace", // Change this to your desired font family
+            fontSize: "0.8rem",
+            fontFamily: "monospace",
           },
         },
       },
@@ -53,10 +65,33 @@ const customTheme = (outerTheme) =>
     },
   });
 
+/* ---------- main component LandingPage here ---------- */
+/*
+  Landing Page queries user input which later translates to some sticky
+  notes on the story borad.
+
+  @todo p5.js custom background
+  @todo user flow TBD. Type your question is counter-intuitive.
+  @todo mongodbInsert to be implemented. Currently the user input is logged to console.
+*/
 function LandingPage() {
   const outerTheme = useTheme();
+  const [input, setInput] = useState("");
+  const navigate = useNavigate();
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
+  /* 
+    funcionality TBD. currently it logs the user input (@var input) to the console 
+    and navigates to next layer.
+   */
+  const handleSubmit = () => {
+    console.log(input);
+    /* After desired interaction (such as mongoInsert), navigating to next story board. */
+    navigate("/story");
+  };
   return (
-    <div>
+    <React.Fragment>
       <Grid
         container
         sx={{
@@ -75,13 +110,55 @@ function LandingPage() {
               height: "auto",
             }}
           >
+            {/* ---------- Input Box ---------- */}
             <ThemeProvider theme={customTheme(outerTheme)}>
-              <TextField label="Type Your Question" />
+              <TextField
+                label="Type Your Question"
+                onChange={handleInputChange}
+              />
+            </ThemeProvider>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "auto",
+            }}
+          >
+            <ThemeProvider theme={buttonTheme}>
+              <Stack direction="row" spacing={5} mt={3}>
+                {/* ---------- Skip Button ---------- */}
+                <Button
+                  variant="outlined"
+                  size="small"
+                  color="inherit"
+                  sx={{ fontFamily: "monospace", fontSize: "0.7rem" }}
+                  onClick={() => {
+                    navigate("/story");
+                  }}
+                >
+                  Skip
+                </Button>
+                {/* ---------- Submit Button ---------- */}
+                <Button
+                  variant="contained"
+                  size="small"
+                  color="ochre"
+                  sx={{
+                    fontFamily: "monospace",
+                    fontSize: "0.7rem",
+                  }}
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </Button>
+              </Stack>
             </ThemeProvider>
           </Box>
         </Grid>
       </Grid>
-    </div>
+    </React.Fragment>
   );
 }
 
