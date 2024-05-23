@@ -5,7 +5,8 @@ import HideableDrawer from "../utils/HideableDrawer";
 
 export default function Playground() {
   return (
-    <React.Fragment>
+    <Box height={"100vh"}>
+      {/* <CustomCursor></CustomCursor> */}
       <Grid container>
         <Grid item xs={12}>
           <Box position={"absolute"} sx={{ marginLeft: "1%", marginTop: "1%" }}>
@@ -34,6 +35,7 @@ export default function Playground() {
           </Box>
         </Grid>
         <Grid item xs={6}>
+          {/* -------------------- Embedding Youtube Video -------------------- */}
           <Box
             width={"100%"}
             sx={{
@@ -48,7 +50,6 @@ export default function Playground() {
           </Box>
           {/* bootstrap embed ratio is not used */}
           {/* <div class="ratio ratio-16x9"> */}
-
           <Box height={"45vh"} p={1}>
             <iframe
               src="https://www.youtube.com/embed/g6-Wf79K_zE?si=e2LG_Z2EHC5b20iR"
@@ -59,11 +60,12 @@ export default function Playground() {
             ></iframe>
           </Box>
           {/* </div> */}
+          {/* -------------------- End of Embedding Youtube Video -------------------- */}
         </Grid>
-        <Grid item xs={6}>
-          video 2
+        <Grid item xs={6} border={1}>
+          {/* <h1>hover here</h1> */}
         </Grid>
       </Grid>
-    </React.Fragment>
+    </Box>
   );
 }

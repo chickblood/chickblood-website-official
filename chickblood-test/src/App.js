@@ -4,10 +4,12 @@ import LandingPage from "./components/LandingPage";
 import Story from "./components/Story";
 import "./translation/i18n";
 import Playground from "./beta/Playground";
+import CustomCursor from "./utils/CustomCursor";
 
 function Layout({ children }) {
   return (
     <>
+      <CustomCursor></CustomCursor>
       <Outlet></Outlet>
     </>
   );

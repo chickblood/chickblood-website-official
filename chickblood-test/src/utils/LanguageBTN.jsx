@@ -9,6 +9,7 @@ import i18n from "i18next";
 import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
+import CustomCursor from "./CustomCursor";
 
 export default function LanguageBTN() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,6 +23,7 @@ export default function LanguageBTN() {
   const { t } = useTranslation();
   return (
     <div>
+      <CustomCursor></CustomCursor>
       <ThemeProvider theme={buttonTheme}>
         <Button
           aria-controls={open ? "demo-customized-menu" : undefined}
@@ -32,6 +34,7 @@ export default function LanguageBTN() {
           onClick={handleClick}
           endIcon={<KeyboardArrowDownIcon />}
           color="ochre"
+          style={{ cursor: "none" }}
         >
           <LanguageIcon></LanguageIcon>
           <Typography
@@ -54,6 +57,7 @@ export default function LanguageBTN() {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        style={{ cursor: "none" }}
       >
         {/* English */}
         <MenuItem
@@ -62,6 +66,7 @@ export default function LanguageBTN() {
             setAnchorEl(null);
           }}
           disableRipple
+          style={{ cursor: "none" }}
         >
           <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
             English
@@ -74,6 +79,7 @@ export default function LanguageBTN() {
             setAnchorEl(null);
           }}
           disableRipple
+          style={{ cursor: "none" }}
         >
           <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
             中文
@@ -86,6 +92,7 @@ export default function LanguageBTN() {
             setAnchorEl(null);
           }}
           disableRipple
+          style={{ cursor: "none" }}
         >
           <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
             日本語
@@ -98,6 +105,7 @@ export default function LanguageBTN() {
             setAnchorEl(null);
           }}
           disableRipple
+          style={{ cursor: "none" }}
         >
           <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
             한국어

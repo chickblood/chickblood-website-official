@@ -14,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import LanguageBTN from "./LanguageBTN";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import CustomCursor from "./CustomCursor";
 
 /**
  * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
@@ -70,11 +71,16 @@ export default function HideableDrawer() {
       role="presentation"
       // onClick={toggleDrawer(false)}
     >
+      <CustomCursor></CustomCursor>
       <List disablePadding>
         {/* disablePadding is on at ListItem. Buttons are full bar width with padding */}
         {/* Story  */}
         <ListItem disablePadding>
-          <AnimatedListItemButton>
+          <AnimatedListItemButton
+            onClick={() => {
+              navigate("/story");
+            }}
+          >
             <AnimatedListItemText primary={t("story")} sx={ListItemTextStyle} />
           </AnimatedListItemButton>
         </ListItem>
@@ -168,7 +174,11 @@ export default function HideableDrawer() {
   return (
     <React.Fragment>
       <Box>
-        <Button onClick={toggleDrawer(true)} color="inherit">
+        <Button
+          onClick={toggleDrawer(true)}
+          color="inherit"
+          style={{ cursor: "none" }}
+        >
           <MenuOpenIcon />
         </Button>
       </Box>
