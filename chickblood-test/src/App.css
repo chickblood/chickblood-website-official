@@ -1,7 +1,4 @@
 /* styles.css */
-body {
-  font-family: Arial, sans-serif; /* Default font */
-}
 
 body.en {
   font-family: "monospace";
@@ -17,4 +14,19 @@ body.krn {
 
 body.jpn {
   font-family: "Noto Sans JP", sans-serif;
+}
+
+body,
+a,
+button,
+[role="button"],
+.clickable {
+  cursor: none;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover,
+.clickable:hover {
+  cursor: none;
 }
