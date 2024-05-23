@@ -1,4 +1,5 @@
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
@@ -22,7 +23,16 @@ export default function HideableDrawer() {
     setOpen(newOpen);
   };
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box
+      sx={{
+        width: 250,
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
       <List disablePadding>
         {/* disablePadding is on at ListItem. Buttons are full bar width with padding */}
         {/* Story  */}
@@ -73,7 +83,11 @@ export default function HideableDrawer() {
             <ListItemText primary={"Member"} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
+        {/* Divider. End of Router components. */}
       </List>
+      <Divider />
+      <Box style={{ flexGrow: 1 }} />
+      <Box p={2}>Language Buttons are here</Box>
     </Box>
   );
   return (
