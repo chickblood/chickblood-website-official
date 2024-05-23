@@ -6,6 +6,7 @@ import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
 // i18n imports
 import i18n from "i18next";
+import { Typography } from "@mui/material";
 
 export default function LanguageBTN() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -49,7 +50,9 @@ export default function LanguageBTN() {
           }}
           disableRipple
         >
-          English
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            English
+          </Typography>
         </MenuItem>
         {/* 中文 */}
         <MenuItem
@@ -60,7 +63,9 @@ export default function LanguageBTN() {
           }}
           disableRipple
         >
-          中文
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            中文
+          </Typography>
         </MenuItem>
         {/* 日语 */}
         <MenuItem
@@ -71,7 +76,9 @@ export default function LanguageBTN() {
           }}
           disableRipple
         >
-          日本語
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            日本語
+          </Typography>
         </MenuItem>
         {/* 韩语 */}
         <MenuItem
@@ -82,7 +89,9 @@ export default function LanguageBTN() {
           }}
           disableRipple
         >
-          한국어
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            한국어
+          </Typography>
         </MenuItem>
       </StyledMenu>
     </div>
