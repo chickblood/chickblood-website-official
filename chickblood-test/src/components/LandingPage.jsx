@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from "react";
 import { Box, Button, Grid, Stack, TextField } from "@mui/material";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { outlinedInputClasses } from "@mui/material/OutlinedInput";
-import { useNavigate } from "react-router-dom";
+import { ThemeProvider, createTheme, useTheme } from "@mui/material/styles";
 import p5 from "p5";
+import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 /** -----------------------------------------------------------------------------------
   LandingPage - A functional component for capturing user input and navigating to the 
@@ -30,6 +31,7 @@ import p5 from "p5";
 ----------------------------------------------------------------------------------- **/
 
 function LandingPage() {
+  const { t } = useTranslation();
   const outerTheme = useTheme();
   const [input, setInput] = useState("");
   const navigate = useNavigate();
@@ -86,7 +88,7 @@ function LandingPage() {
             <ThemeProvider theme={customTheme(outerTheme)}>
               <Box width={"20%"}>
                 <TextField
-                  label="Type Your Question"
+                  label={t("typeyourquestion")}
                   onChange={handleInputChange}
                   fullWidth
                 />
@@ -113,7 +115,7 @@ function LandingPage() {
                     navigate("/story");
                   }}
                 >
-                  Skip
+                  {t("skip")}
                 </Button>
                 {/* ---------- Submit Button ---------- */}
                 <Button
@@ -126,7 +128,7 @@ function LandingPage() {
                   }}
                   onClick={handleSubmit}
                 >
-                  Submit
+                  {t("submit")}
                 </Button>
               </Stack>
             </ThemeProvider>

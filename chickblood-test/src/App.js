@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import Story from "./components/Story";
+import "./translation/i18n";
 
 function Layout({ children }) {
   return (
