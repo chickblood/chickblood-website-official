@@ -12,4 +12,5 @@ export const TRANSLATION_CHN = {
   blog: "博客",
   contact: "联系我们",
   member: "成员",
+  language:"语言设置"
 };

@@ -12,4 +12,5 @@ export const TRANSLATION_KRN = {
   blog: "블로그",
   contact: "문의하기",
   member: "회원",
+  language: "언어",
 };
