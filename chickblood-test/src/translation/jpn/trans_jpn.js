@@ -12,4 +12,5 @@ export const TRANSLATION_JPN = {
   blog: "ブログ",
   contact: "お問い合わせ",
   member: "メンバー",
+  language: "言語",
 };

@@ -6,6 +6,9 @@ import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
 // i18n imports
 import i18n from "i18next";
+import { ThemeProvider, Typography, createTheme } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import LanguageIcon from "@mui/icons-material/Language";
 
 export default function LanguageBTN() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,23 +19,35 @@ export default function LanguageBTN() {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const { t } = useTranslation();
   return (
     <div>
-      <Button
-        id="demo-customized-button"
-        aria-controls={open ? "demo-customized-menu" : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
-        variant="contained"
-        disableElevation
-        onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-      >
-        Options
-      </Button>
+      <ThemeProvider theme={buttonTheme}>
+        <Button
+          aria-controls={open ? "demo-customized-menu" : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? "true" : undefined}
+          variant="contained"
+          disableElevation
+          onClick={handleClick}
+          endIcon={<KeyboardArrowDownIcon />}
+          color="ochre"
+        >
+          <LanguageIcon></LanguageIcon>
+          <Typography
+            ml={2}
+            sx={{
+              color: "#242105",
+              fontFamily: "monospace",
+              fontSize: "15px",
+              textTransform: "none",
+            }}
+          >
+            {t("language")}
+          </Typography>
+        </Button>
+      </ThemeProvider>
       <StyledMenu
-        id="demo-customized-menu"
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
@@ -45,44 +60,48 @@ export default function LanguageBTN() {
           onClick={() => {
             i18n.changeLanguage("en");
             setAnchorEl(null);
-            console.log(i18n.language);
           }}
           disableRipple
         >
-          English
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            English
+          </Typography>
         </MenuItem>
         {/* 中文 */}
         <MenuItem
           onClick={() => {
             i18n.changeLanguage("chn");
             setAnchorEl(null);
-            console.log(i18n.language);
           }}
           disableRipple
         >
-          中文
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            中文
+          </Typography>
         </MenuItem>
         {/* 日语 */}
         <MenuItem
           onClick={() => {
             i18n.changeLanguage("jpn");
             setAnchorEl(null);
-            console.log(i18n.language);
           }}
           disableRipple
         >
-          日本語
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            日本語
+          </Typography>
         </MenuItem>
         {/* 韩语 */}
         <MenuItem
           onClick={() => {
             i18n.changeLanguage("krn");
             setAnchorEl(null);
-            console.log(i18n.language);
           }}
           disableRipple
         >
-          한국어
+          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+            한국어
+          </Typography>
         </MenuItem>
       </StyledMenu>
     </div>
@@ -131,3 +150,15 @@ const StyledMenu = styled((props) => (
     },
   },
 }));
+
+/* ---------- custom buttom color palette ---------- */
+const buttonTheme = createTheme({
+  palette: {
+    ochre: {
+      main: "#E3D026",
+      light: "#E9DB5D",
+      dark: "#A29415",
+      contrastText: "#242105",
+    },
+  },
+});

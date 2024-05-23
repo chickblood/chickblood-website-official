@@ -12,4 +12,5 @@ export const TRANSLATION_EN = {
   blog: "Blog",
   contact: "Contact",
   member: "Member",
+  language: "Language",
 };

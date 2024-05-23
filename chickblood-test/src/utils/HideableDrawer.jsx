@@ -91,7 +91,10 @@ export default function HideableDrawer() {
       </List>
       <Divider />
       <Box style={{ flexGrow: 1 }} />
-      <Box p={2}>
+      <Box
+        p={3}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
         <LanguageBTN />
       </Box>
     </Box>
