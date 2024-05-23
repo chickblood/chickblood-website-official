@@ -1,3 +1,5 @@
+import * as React from "react";
+// MUI imports
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -7,7 +9,9 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import * as React from "react";
+
+import { useTranslation } from "react-i18next";
+import LanguageBTN from "./LanguageBTN";
 
 const ListItemTextStyle = {
   "& .MuiListItemText-primary": {
@@ -17,8 +21,8 @@ const ListItemTextStyle = {
 };
 
 export default function HideableDrawer() {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
-
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
@@ -31,65 +35,68 @@ export default function HideableDrawer() {
         height: "100%",
       }}
       role="presentation"
-      onClick={toggleDrawer(false)}
+      // onClick={toggleDrawer(false)}
     >
       <List disablePadding>
         {/* disablePadding is on at ListItem. Buttons are full bar width with padding */}
         {/* Story  */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Story"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("story")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Events */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Events"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("events")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Mercahndise */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Mercahndise"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("merchandise")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Archive */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Archive"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("archive")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Gallery */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Gallery"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("gallery")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Blog */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Blog"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("blog")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Contact */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Contact"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("contact")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Member */}
         <ListItem disablePadding>
           <ListItemButton>
-            <ListItemText primary={"Member"} sx={ListItemTextStyle} />
+            <ListItemText primary={t("member")} sx={ListItemTextStyle} />
           </ListItemButton>
         </ListItem>
         {/* Divider. End of Router components. */}
       </List>
       <Divider />
       <Box style={{ flexGrow: 1 }} />
-      <Box p={2}>Language Buttons are here</Box>
+      <Box p={2}>
+        <LanguageBTN />
+      </Box>
     </Box>
   );
+
   return (
     <React.Fragment>
       <Box>
