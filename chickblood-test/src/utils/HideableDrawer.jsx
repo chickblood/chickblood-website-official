@@ -12,15 +12,48 @@ import ListItemText from "@mui/material/ListItemText";
 
 import { useTranslation } from "react-i18next";
 import LanguageBTN from "./LanguageBTN";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
+/**
+ * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
+ * **/
 const ListItemTextStyle = {
   "& .MuiListItemText-primary": {
-    fontFamily: "PT Mono",
+    fontFamily: "PT Mono", //used to be monospace
     fontSize: 15,
   },
 };
+const MotionListItemText = motion(ListItemText);
+const AnimatedListItemText = ({ primary, sx, ...props }) => (
+  <MotionListItemText
+    primary={primary}
+    sx={sx}
+    whileHover={{ scale: 1 }}
+    style={{ originX: 0 }}
+    {...props}
+  />
+);
 
+/**
+ * ListItemButton Styles. Defines the Styling and motion of List Item Buttons.
+ * **/
+const MotionListItemButton = motion(ListItemButton);
+const AnimatedListItemButton = ({ primary, sx, ...props }) => (
+  <MotionListItemButton
+    primary={primary}
+    sx={sx}
+    whileHover={{ scale: 1.2 }}
+    style={{ originX: 0 }}
+    {...props}
+  />
+);
+
+/**
+ * Main Component.
+ **/
 export default function HideableDrawer() {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -41,55 +74,87 @@ export default function HideableDrawer() {
         {/* disablePadding is on at ListItem. Buttons are full bar width with padding */}
         {/* Story  */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("story")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText primary={t("story")} sx={ListItemTextStyle} />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Events */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("events")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("events")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Mercahndise */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("merchandise")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("merchandise")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Archive */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("archive")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("archive")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Gallery */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("gallery")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("gallery")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Blog */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("blog")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText primary={t("blog")} sx={ListItemTextStyle} />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Contact */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("contact")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("contact")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
         {/* Member */}
         <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemText primary={t("member")} sx={ListItemTextStyle} />
-          </ListItemButton>
+          <AnimatedListItemButton>
+            <AnimatedListItemText
+              primary={t("member")}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
         </ListItem>
-        {/* Divider. End of Router components. */}
       </List>
-      <Divider />
+      {/* Divider. End of Router components. */}
+      <Divider sx={{ mt: 1 }} />
+      <List>
+        <ListItem disablePadding>
+          <AnimatedListItemButton
+            onClick={() => {
+              navigate("/playground");
+            }}
+          >
+            <AnimatedListItemText
+              primary={"Playground - Beta"}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
+        </ListItem>
+      </List>
       <Box style={{ flexGrow: 1 }} />
       <Box
         p={3}
