@@ -13,13 +13,14 @@ import ListItemText from "@mui/material/ListItemText";
 import { useTranslation } from "react-i18next";
 import LanguageBTN from "./LanguageBTN";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 /**
  * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
  * **/
 const ListItemTextStyle = {
   "& .MuiListItemText-primary": {
-    fontFamily: "PT Mono",
+    fontFamily: "PT Mono", //used to be monospace
     fontSize: 15,
   },
 };
@@ -52,6 +53,7 @@ const AnimatedListItemButton = ({ primary, sx, ...props }) => (
  * Main Component.
  **/
 export default function HideableDrawer() {
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -139,6 +141,20 @@ export default function HideableDrawer() {
       </List>
       {/* Divider. End of Router components. */}
       <Divider sx={{ mt: 1 }} />
+      <List>
+        <ListItem disablePadding>
+          <AnimatedListItemButton
+            onClick={() => {
+              navigate("/playground");
+            }}
+          >
+            <AnimatedListItemText
+              primary={"Playground - Beta"}
+              sx={ListItemTextStyle}
+            />
+          </AnimatedListItemButton>
+        </ListItem>
+      </List>
       <Box style={{ flexGrow: 1 }} />
       <Box
         p={3}

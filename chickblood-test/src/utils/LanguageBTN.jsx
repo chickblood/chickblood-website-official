@@ -38,7 +38,7 @@ export default function LanguageBTN() {
             ml={2}
             sx={{
               color: "#242105",
-              fontFamily: "monospace",
+              fontFamily: "PT Mono",
               fontSize: "15px",
               textTransform: "none",
             }}
