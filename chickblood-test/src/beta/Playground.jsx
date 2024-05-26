@@ -62,10 +62,63 @@ export default function Playground() {
           {/* </div> */}
           {/* -------------------- End of Embedding Youtube Video -------------------- */}
         </Grid>
-        <Grid item xs={6} border={1}>
-          {/* <h1>hover here</h1> */}
+        <Grid item xs={2}></Grid>
+        <Grid item xs={4}>
+          {/* -------------------- Embedding Spotify Component -------------------- */}
+          <Box
+            width={"100%"}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Typography sx={{ fontFamily: "monospace", fontSize: "14px" }}>
+              Spotify Embed
+            </Typography>
+          </Box>
+          {/* bootstrap embed ratio is not used */}
+          {/* <div class="ratio ratio-16x9"> */}
+          <Box
+            p={1}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "80vh",
+              width: "100%",
+            }}
+          >
+            <SpotifyEmbed></SpotifyEmbed>
+          </Box>
+          {/* </div> */}
+          {/* -------------------- End of Spotify Embed -------------------- */}
         </Grid>
       </Grid>
     </Box>
   );
 }
+
+/**
+ * Spotify Embed is self-responsive and is based on pixels. Works fine on laptop but 45vh triggers smaller window on ipad
+ *  **/
+const SpotifyEmbed = () => {
+  const embedCode = `<iframe style="border-radius:12px" 
+  src="https://open.spotify.com/embed/playlist/3TYCQYrMRi9q6jCh23MogZ?utm_source=generator" 
+  width="100%" height="100%" frameBorder="0" allow="autoplay; 
+  clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+  loading="lazy"></iframe>`;
+
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+        width: "100%",
+      }}
+      dangerouslySetInnerHTML={{ __html: embedCode }}
+    ></Box>
+  );
+};

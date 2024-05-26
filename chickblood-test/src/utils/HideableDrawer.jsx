@@ -1,6 +1,5 @@
 import * as React from "react";
 // MUI imports
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,12 +8,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-
-import { useTranslation } from "react-i18next";
-import LanguageBTN from "./LanguageBTN";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { CiMenuFries } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
+import LanguageBTN from "./LanguageBTN";
 
 /**
  * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
@@ -179,7 +178,7 @@ export default function HideableDrawer() {
           color="inherit"
           style={{ cursor: "none" }}
         >
-          <MenuOpenIcon />
+          <CiMenuFries size={"25px"}></CiMenuFries>
         </Button>
       </Box>
       <Drawer open={open} onClose={toggleDrawer(false)}>
