@@ -2,9 +2,13 @@ import { Box, Grid, Typography } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { useTranslation } from "react-i18next";
+import useFontFamily from "../hooks/useFontFamily";
 import HideableDrawer from "../utils/HideableDrawer";
 
 export default function Playground() {
+  const { t } = useTranslation();
+  const useFont = useFontFamily();
   return (
     <Box height={"100vh"}>
       {/* <CustomCursor></CustomCursor> */}
@@ -27,6 +31,7 @@ export default function Playground() {
                 sx={{
                   fontWeight: "bold",
                   fontSize: "20px",
+                  fontFamily: useFont,
                 }}
               >
                 <Ticker></Ticker>
@@ -44,7 +49,9 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px" }}>Youtube Embed</Typography>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
+              Youtube Embed
+            </Typography>
           </Box>
           {/* bootstrap embed ratio is not used */}
           {/* <div class="ratio ratio-16x9"> */}
@@ -67,7 +74,9 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px" }}>Youtube Embed</Typography>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
+              Youtube Embed
+            </Typography>
           </Box>
           {/* bootstrap embed ratio is not used */}
           {/* <div class="ratio ratio-16x9"> */}
@@ -91,12 +100,7 @@ export default function Playground() {
         <Grid item xs={2}>
           <Box>
             <Marquee>
-              <Typography>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatem, maxime veritatis nam nisi nesciunt eius at harum
-                repellat cum iure iste quis possimus autem, consequuntur dolore
-                explicabo assumenda. Ipsa, repudiandae?
-              </Typography>
+              <Typography sx={{ fontFamily: useFont }}>{t("lorem")}</Typography>
             </Marquee>
           </Box>
         </Grid>
@@ -110,7 +114,7 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px" }}>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
               Soundcloud & Spotify Embed
             </Typography>
           </Box>
@@ -222,12 +226,6 @@ const SpotifyEmbed2 = () => {
 };
 
 const Ticker = () => {
-  return (
-    <Marquee>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem,
-      maxime veritatis nam nisi nesciunt eius at harum repellat cum iure iste
-      quis possimus autem, consequuntur dolore explicabo assumenda. Ipsa,
-      repudiandae?
-    </Marquee>
-  );
+  const { t } = useTranslation();
+  return <Marquee>{t("lorem")}</Marquee>;
 };

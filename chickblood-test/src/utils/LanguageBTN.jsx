@@ -5,12 +5,13 @@ import MenuItem from "@mui/material/MenuItem";
 import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
 // i18n imports
-import i18n from "i18next";
-import { ThemeProvider, Typography, createTheme } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
-import CustomCursor from "./CustomCursor";
+import { Typography } from "@mui/material";
+import i18n from "i18next";
+import { useTranslation } from "react-i18next";
+import useColorPalette from "../hooks/useColorPalette";
 import useFontFamily from "../hooks/useFontFamily";
+import CustomCursor from "./CustomCursor";
 
 export default function LanguageBTN() {
   const useFont = useFontFamily();
@@ -23,35 +24,39 @@ export default function LanguageBTN() {
     setAnchorEl(null);
   };
   const { t } = useTranslation();
+  const colorPalette = useColorPalette();
+  console.log(colorPalette.pear);
   return (
     <div>
       <CustomCursor></CustomCursor>
-      <ThemeProvider theme={buttonTheme}>
-        <Button
-          aria-controls={open ? "demo-customized-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          variant="contained"
-          disableElevation
-          onClick={handleClick}
-          endIcon={<KeyboardArrowDownIcon />}
-          color="ochre"
-          style={{ cursor: "none" }}
+      <Button
+        aria-controls={open ? "demo-customized-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        variant="contained"
+        disableElevation
+        onClick={handleClick}
+        endIcon={
+          <KeyboardArrowDownIcon style={{ color: colorPalette.black }} />
+        }
+        style={{
+          cursor: "none",
+          backgroundColor: colorPalette.pear,
+        }}
+      >
+        <LanguageIcon style={{ color: colorPalette.black }}></LanguageIcon>
+        <Typography
+          ml={2}
+          sx={{
+            color: "#242105",
+            fontFamily: useFont,
+            fontSize: "15px",
+            textTransform: "none",
+          }}
         >
-          <LanguageIcon></LanguageIcon>
-          <Typography
-            ml={2}
-            sx={{
-              color: "#242105",
-              fontFamily: useFont,
-              fontSize: "15px",
-              textTransform: "none",
-            }}
-          >
-            {t("language")}
-          </Typography>
-        </Button>
-      </ThemeProvider>
+          {t("language")}
+        </Typography>
+      </Button>
       <StyledMenu
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
@@ -162,15 +167,3 @@ const StyledMenu = styled((props) => (
     },
   },
 }));
-
-/* ---------- custom buttom color palette ---------- */
-const buttonTheme = createTheme({
-  palette: {
-    ochre: {
-      main: "#E3D026",
-      light: "#E9DB5D",
-      dark: "#A29415",
-      contrastText: "#242105",
-    },
-  },
-});
