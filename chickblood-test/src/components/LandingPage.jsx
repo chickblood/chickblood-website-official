@@ -6,6 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import useColorPalette from "../hooks/useColorPalette";
 import useFontFamily from "../hooks/useFontFamily";
 
 /** -----------------------------------------------------------------------------------
@@ -19,7 +20,6 @@ import useFontFamily from "../hooks/useFontFamily";
   for user input.
 
   Theme Customization
-  - @param {buttonTheme} - defines a custom color palette for the buttons. Ochre(0520)
   - @param {customTheme} - customizes the styles for the text field. (border color and font style)
 
   p5 related stuff
@@ -65,8 +65,9 @@ function LandingPage() {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
     };
   };
+  const colorPalette = useColorPalette();
   const useFont = useFontFamily();
-  console.log(useFont);
+
   return (
     <div>
       <P5Wrapper sketch={sketch} />
@@ -108,40 +109,41 @@ function LandingPage() {
               height: "auto",
             }}
           >
-            <ThemeProvider theme={buttonTheme}>
-              <Stack direction="row" spacing={5} mt={3}>
-                {/* ---------- Skip Button ---------- */}
-                <Button
-                  variant="outlined"
-                  size="small"
-                  color="inherit"
-                  sx={{
-                    fontSize: "0.7rem",
-                    fontFamily: useFont,
-                  }}
-                  onClick={() => {
-                    navigate("/story");
-                  }}
-                  style={{ cursor: "none" }}
-                >
-                  {t("skip")}
-                </Button>
-                {/* ---------- Submit Button ---------- */}
-                <Button
-                  variant="contained"
-                  size="small"
-                  color="ochre"
-                  sx={{
-                    fontSize: "0.7rem",
-                    fontFamily: useFont,
-                  }}
-                  onClick={handleSubmit}
-                  style={{ cursor: "none" }}
-                >
-                  {t("submit")}
-                </Button>
-              </Stack>
-            </ThemeProvider>
+            <Stack direction="row" spacing={5} mt={3}>
+              {/* ---------- Skip Button ---------- */}
+              <Button
+                variant="outlined"
+                size="small"
+                color="inherit"
+                sx={{
+                  fontSize: "0.7rem",
+                  fontFamily: useFont,
+                }}
+                onClick={() => {
+                  navigate("/story");
+                }}
+                style={{ cursor: "none" }}
+              >
+                {t("skip")}
+              </Button>
+              {/* ---------- Submit Button ---------- */}
+              <Button
+                variant="contained"
+                size="small"
+                sx={{
+                  fontSize: "0.7rem",
+                  fontFamily: useFont,
+                }}
+                onClick={handleSubmit}
+                style={{
+                  cursor: "none",
+                  color: colorPalette.black,
+                  backgroundColor: colorPalette.pear,
+                }}
+              >
+                {t("submit")}
+              </Button>
+            </Stack>
           </Box>
         </Grid>
       </Grid>
@@ -152,17 +154,6 @@ function LandingPage() {
 export default LandingPage;
 
 /* ---------- Customization and Theming ---------- */
-/* ---------- custom buttom color palette ---------- */
-const buttonTheme = createTheme({
-  palette: {
-    ochre: {
-      main: "#E3D026",
-      light: "#E9DB5D",
-      dark: "#A29415",
-      contrastText: "#242105",
-    },
-  },
-});
 
 /* ---------- custom input text field theme ---------- */
 const customTheme = (outerTheme, useFont) =>
