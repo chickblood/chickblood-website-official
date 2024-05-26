@@ -1,11 +1,13 @@
 import { Box } from "@mui/material";
 import React from "react";
 import HideableDrawer from "../utils/HideableDrawer";
+import Construction from "../beta/Construction";
 
 function Story() {
   return (
-    <Box height={"100vh"}>
-      <Box position={"absolute"} sx={{ marginLeft: "1%", marginTop: "1%" }}>
+    <Box height="100vh" position="relative" style={{ overflow: "hidden" }}>
+      <Construction />
+      <Box position="absolute" sx={{ marginLeft: "1%", marginTop: "1%" }}>
         <HideableDrawer />
       </Box>
     </Box>

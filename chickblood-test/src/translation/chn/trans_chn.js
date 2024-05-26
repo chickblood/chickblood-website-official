@@ -16,4 +16,6 @@ export const TRANSLATION_CHN = {
   // random
   lorem:
     "洛雷姆伊普苏姆痛苦坐阿梅特自然环保精英。经常被责怪的平庸真理伴随着欲望的苦痛而不是在坚持中，无处不在的权力和必要的权利！模式，欢乐。身份是这种痛苦的理论。",
+  construction: "此页面正在建设中。请稍后再来查看！",
+  background_credit: "(背景艺术基于Keith Peters的代码。)",
 };
