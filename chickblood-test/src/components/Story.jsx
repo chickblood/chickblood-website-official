@@ -4,11 +4,11 @@ import HideableDrawer from "../utils/HideableDrawer";
 
 function Story() {
   return (
-    <React.Fragment>
+    <Box height={"100vh"}>
       <Box position={"absolute"} sx={{ marginLeft: "1%", marginTop: "1%" }}>
         <HideableDrawer />
       </Box>
-    </React.Fragment>
+    </Box>
   );
 }
 

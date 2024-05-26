@@ -91,6 +91,7 @@ function LandingPage() {
                   label={t("typeyourquestion")}
                   onChange={handleInputChange}
                   fullWidth
+                  inputProps={{ style: { cursor: "none" } }}
                 />
               </Box>
             </ThemeProvider>
@@ -114,6 +115,7 @@ function LandingPage() {
                   onClick={() => {
                     navigate("/story");
                   }}
+                  style={{ cursor: "none" }}
                 >
                   {t("skip")}
                 </Button>
@@ -127,6 +129,7 @@ function LandingPage() {
                     fontSize: "0.7rem",
                   }}
                   onClick={handleSubmit}
+                  style={{ cursor: "none" }}
                 >
                   {t("submit")}
                 </Button>
