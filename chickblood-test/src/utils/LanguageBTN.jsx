@@ -10,8 +10,10 @@ import { ThemeProvider, Typography, createTheme } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
 import CustomCursor from "./CustomCursor";
+import useFontFamily from "../hooks/useFontFamily";
 
 export default function LanguageBTN() {
+  const useFont = useFontFamily();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -41,7 +43,7 @@ export default function LanguageBTN() {
             ml={2}
             sx={{
               color: "#242105",
-              fontFamily: "PT Mono",
+              fontFamily: useFont,
               fontSize: "15px",
               textTransform: "none",
             }}
@@ -68,7 +70,7 @@ export default function LanguageBTN() {
           disableRipple
           style={{ cursor: "none" }}
         >
-          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+          <Typography sx={{ fontSize: "15px", fontFamily: "CHeiHK-UltraBold" }}>
             English
           </Typography>
         </MenuItem>
@@ -81,7 +83,7 @@ export default function LanguageBTN() {
           disableRipple
           style={{ cursor: "none" }}
         >
-          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+          <Typography sx={{ fontSize: "15px", fontFamily: "DHeiFanTi" }}>
             中文
           </Typography>
         </MenuItem>
@@ -94,7 +96,9 @@ export default function LanguageBTN() {
           disableRipple
           style={{ cursor: "none" }}
         >
-          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+          <Typography
+            sx={{ fontSize: "15px", fontFamily: "Hiragiro-Mincho-Pro-W3" }}
+          >
             日本語
           </Typography>
         </MenuItem>
@@ -107,7 +111,7 @@ export default function LanguageBTN() {
           disableRipple
           style={{ cursor: "none" }}
         >
-          <Typography sx={{ fontFamily: "monospace", fontSize: "15px" }}>
+          <Typography sx={{ fontSize: "15px", fontFamily: "Pretendard" }}>
             한국어
           </Typography>
         </MenuItem>

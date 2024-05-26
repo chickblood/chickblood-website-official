@@ -5,6 +5,7 @@ import { TRANSLATION_EN } from "./en/trans_en";
 import { TRANSLATION_CHN } from "./chn/trans_chn";
 import { TRANSLATION_KRN } from "./krn/trans_krn";
 import { TRANSLATION_JPN } from "./jpn/trans_jpn";
+import "../App.css";
 
 i18n
   .use(LanguageDetector)
@@ -45,9 +46,5 @@ i18n
       caches: ["localStorage", "cookie"],
     },
   });
-
-i18n.on("languageChanged", (lng) => {
-  document.body.className = lng;
-});
 
 export default i18n;

@@ -5,6 +5,8 @@ import Story from "./components/Story";
 import "./translation/i18n";
 import Playground from "./beta/Playground";
 import CustomCursor from "./utils/CustomCursor";
+import "./App.css";
+import useFontFamily from "./hooks/useFontFamily";
 
 function Layout({ children }) {
   return (
@@ -16,6 +18,7 @@ function Layout({ children }) {
 }
 
 function App() {
+  useFontFamily();
   return (
     <React.Fragment>
       <Routes>

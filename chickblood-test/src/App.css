@@ -1,19 +1,5 @@
-/* styles.css */
-
-body.en {
-  font-family: "monospace";
-}
-
-body.chn {
-  font-family: "SimSun", "SimHei", sans-serif;
-}
-
-body.krn {
-  font-family: "Nanum Gothic", sans-serif;
-}
-
-body.jpn {
-  font-family: "Noto Sans JP", sans-serif;
+.english-font {
+  font-family: "CHeiHK-UltraBold", "sans-serif";
 }
 
 body,
