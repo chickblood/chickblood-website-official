@@ -5,6 +5,8 @@ import p5 from "p5";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
+import useFontFamily from "../hooks/useFontFamily";
 
 /** -----------------------------------------------------------------------------------
   LandingPage - A functional component for capturing user input and navigating to the 
@@ -63,8 +65,10 @@ function LandingPage() {
       p.resizeCanvas(p.windowWidth, p.windowHeight);
     };
   };
+  const useFont = useFontFamily();
+  console.log(useFont);
   return (
-    <React.Fragment>
+    <div>
       <P5Wrapper sketch={sketch} />
       <Grid
         container
@@ -85,7 +89,7 @@ function LandingPage() {
             }}
           >
             {/* ---------- Input Box ---------- */}
-            <ThemeProvider theme={customTheme(outerTheme)}>
+            <ThemeProvider theme={customTheme(outerTheme, useFont)}>
               <Box width={"20%"}>
                 <TextField
                   label={t("typeyourquestion")}
@@ -111,7 +115,10 @@ function LandingPage() {
                   variant="outlined"
                   size="small"
                   color="inherit"
-                  sx={{ fontFamily: "monospace", fontSize: "0.7rem" }}
+                  sx={{
+                    fontSize: "0.7rem",
+                    fontFamily: useFont,
+                  }}
                   onClick={() => {
                     navigate("/story");
                   }}
@@ -125,8 +132,8 @@ function LandingPage() {
                   size="small"
                   color="ochre"
                   sx={{
-                    fontFamily: "monospace",
                     fontSize: "0.7rem",
+                    fontFamily: useFont,
                   }}
                   onClick={handleSubmit}
                   style={{ cursor: "none" }}
@@ -138,7 +145,7 @@ function LandingPage() {
           </Box>
         </Grid>
       </Grid>
-    </React.Fragment>
+    </div>
   );
 }
 
@@ -158,7 +165,7 @@ const buttonTheme = createTheme({
 });
 
 /* ---------- custom input text field theme ---------- */
-const customTheme = (outerTheme) =>
+const customTheme = (outerTheme, useFont) =>
   createTheme({
     palette: {
       mode: outerTheme.palette.mode,
@@ -191,7 +198,7 @@ const customTheme = (outerTheme) =>
           },
           input: {
             fontSize: "0.8rem",
-            fontFamily: "monospace",
+            fontFamily: useFont,
           },
         },
       },
@@ -199,7 +206,8 @@ const customTheme = (outerTheme) =>
         styleOverrides: {
           root: {
             fontSize: "0.8rem",
-            fontFamily: "monospace",
+            fontWeight: "400",
+            fontFamily: useFont,
           },
         },
       },

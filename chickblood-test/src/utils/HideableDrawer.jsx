@@ -1,64 +1,69 @@
 import * as React from "react";
-// MUI imports
-import { Divider } from "@mui/material";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  Divider,
+  Box,
+  Button,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+} from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { CiMenuFries } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
 import LanguageBTN from "./LanguageBTN";
-
-/**
- * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
- * **/
-const ListItemTextStyle = {
-  "& .MuiListItemText-primary": {
-    fontFamily: "PT Mono", //used to be monospace
-    fontSize: 15,
-  },
-};
-const MotionListItemText = motion(ListItemText);
-const AnimatedListItemText = ({ primary, sx, ...props }) => (
-  <MotionListItemText
-    primary={primary}
-    sx={sx}
-    whileHover={{ scale: 1 }}
-    style={{ originX: 0 }}
-    {...props}
-  />
-);
-
-/**
- * ListItemButton Styles. Defines the Styling and motion of List Item Buttons.
- * **/
-const MotionListItemButton = motion(ListItemButton);
-const AnimatedListItemButton = ({ primary, sx, ...props }) => (
-  <MotionListItemButton
-    primary={primary}
-    sx={sx}
-    whileHover={{ scale: 1.2 }}
-    style={{ originX: 0 }}
-    {...props}
-  />
-);
+import useFontFamily from "../hooks/useFontFamily";
 
 /**
  * Main Component.
  **/
 export default function HideableDrawer() {
   const navigate = useNavigate();
+  const useFont = useFontFamily();
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+  /**
+   * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
+   **/
+  const ListItemTextStyle = {
+    "& .MuiListItemText-primary": {
+      fontSize: 15,
+      fontFamily: useFont,
+    },
+  };
+
+  const MotionListItemText = motion(ListItemText);
+  const AnimatedListItemText = ({ primary, sx, ...props }) => (
+    <MotionListItemText
+      primary={primary}
+      sx={sx}
+      whileHover={{ scale: 1 }}
+      style={{ originX: 0 }}
+      {...props}
+    />
+  );
+
+  /**
+   * ListItemButton Styles. Defines the Styling and motion of List Item Buttons.
+   **/
+  const MotionListItemButton = motion(ListItemButton);
+  const AnimatedListItemButton = ({ primary, sx, ...props }) => (
+    <MotionListItemButton
+      primary={primary}
+      sx={sx}
+      whileHover={{ scale: 1.2 }}
+      style={{ originX: 0 }}
+      {...props}
+    />
+  );
+
   const DrawerList = (
     <Box
       sx={{
@@ -68,12 +73,9 @@ export default function HideableDrawer() {
         height: "100%",
       }}
       role="presentation"
-      // onClick={toggleDrawer(false)}
     >
-      <CustomCursor></CustomCursor>
+      <CustomCursor />
       <List disablePadding>
-        {/* disablePadding is on at ListItem. Buttons are full bar width with padding */}
-        {/* Story  */}
         <ListItem disablePadding>
           <AnimatedListItemButton
             onClick={() => {
@@ -83,7 +85,6 @@ export default function HideableDrawer() {
             <AnimatedListItemText primary={t("story")} sx={ListItemTextStyle} />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Events */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -92,7 +93,6 @@ export default function HideableDrawer() {
             />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Mercahndise */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -101,7 +101,6 @@ export default function HideableDrawer() {
             />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Archive */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -110,7 +109,6 @@ export default function HideableDrawer() {
             />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Gallery */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -119,13 +117,11 @@ export default function HideableDrawer() {
             />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Blog */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText primary={t("blog")} sx={ListItemTextStyle} />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Contact */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -134,7 +130,6 @@ export default function HideableDrawer() {
             />
           </AnimatedListItemButton>
         </ListItem>
-        {/* Member */}
         <ListItem disablePadding>
           <AnimatedListItemButton>
             <AnimatedListItemText
@@ -144,7 +139,6 @@ export default function HideableDrawer() {
           </AnimatedListItemButton>
         </ListItem>
       </List>
-      {/* Divider. End of Router components. */}
       <Divider sx={{ mt: 1 }} />
       <List>
         <ListItem disablePadding>
@@ -178,7 +172,7 @@ export default function HideableDrawer() {
           color="inherit"
           style={{ cursor: "none" }}
         >
-          <CiMenuFries size={"25px"}></CiMenuFries>
+          <CiMenuFries size={"25px"} />
         </Button>
       </Box>
       <Drawer open={open} onClose={toggleDrawer(false)}>
