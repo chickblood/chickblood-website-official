@@ -15,7 +15,7 @@ const useFontFamily = () => {
       case "jpn":
         return "Hiragiro-Mincho-Pro-W3";
       default:
-        return "monospace";
+        return "CHeiHK-UltraBold";
     }
   };
 
