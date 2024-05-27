@@ -16,4 +16,7 @@ export const TRANSLATION_EN = {
   //random
   lorem:
     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe blanditiis culpa veritatis pariatur voluptatibus aperiam dolor neque at tenetur, ipsam vel voluptates atque necessitatibus! Modi, eos. Id dicta itaque dolore.",
+  // construction
+  construction: "This Page is Under Construction Now. Please Check Back Later!",
+  background_credit: "(Background Art Based on Code from Keith Peters)",
 };
