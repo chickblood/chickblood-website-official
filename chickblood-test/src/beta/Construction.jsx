@@ -43,7 +43,7 @@ const Construction = () => {
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight);
         p.strokeWeight(20);
-        p.stroke("#2DA4D7");
+        p.stroke("#dcdc22");
 
         bottomChain.x.fill(p.width / 2);
         bottomChain.y.fill(p.height);
