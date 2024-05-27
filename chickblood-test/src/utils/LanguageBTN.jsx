@@ -49,7 +49,7 @@ export default function LanguageBTN() {
           ml={2}
           sx={{
             color: "#242105",
-            fontFamily: useFont,
+            fontFamily: useFont.bold,
             fontSize: "15px",
             textTransform: "none",
           }}
@@ -102,7 +102,10 @@ export default function LanguageBTN() {
           style={{ cursor: "none" }}
         >
           <Typography
-            sx={{ fontSize: "15px", fontFamily: "Hiragiro-Mincho-Pro-W3" }}
+            sx={{
+              fontSize: "15px",
+              fontFamily: "hiragino-mincho-pron-w6",
+            }}
           >
             日本語
           </Typography>
@@ -116,7 +119,9 @@ export default function LanguageBTN() {
           disableRipple
           style={{ cursor: "none" }}
         >
-          <Typography sx={{ fontSize: "15px", fontFamily: "Pretendard" }}>
+          <Typography
+            sx={{ fontSize: "15px", fontFamily: "Pretendard-ExtraBold" }}
+          >
             한국어
           </Typography>
         </MenuItem>

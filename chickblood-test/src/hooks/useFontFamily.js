@@ -7,15 +7,30 @@ const useFontFamily = () => {
   const getFontFamily = () => {
     switch (i18n.language) {
       case "en":
-        return "CHeiHK-UltraBold";
+        return {
+          light: "xsong",
+          bold: "CHeiHK-UltraBold",
+        };
       case "krn":
-        return "Pretendard";
+        return {
+          light: "Pretendard-ExtraLight",
+          bold: "Pretendard-ExtraBold",
+        };
       case "chn":
-        return "DHeiFanTi";
+        return {
+          light: "xsong",
+          bold: "DHeiFanTi",
+        };
       case "jpn":
-        return "Hiragiro-Mincho-Pro-W3";
+        return {
+          light: "Hiragiro-Mincho-Pro-W3",
+          bold: "hiragino-mincho-pron-w6",
+        };
       default:
-        return "CHeiHK-UltraBold";
+        return {
+          light: "CHeiHK-UltraBold",
+          bold: "DHeiFanTi",
+        };
     }
   };
 

@@ -35,7 +35,7 @@ export default function HideableDrawer() {
   const ListItemTextStyle = {
     "& .MuiListItemText-primary": {
       fontSize: 15,
-      fontFamily: useFont,
+      fontFamily: useFont.bold,
     },
   };
 

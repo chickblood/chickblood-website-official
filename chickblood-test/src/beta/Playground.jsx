@@ -31,7 +31,7 @@ export default function Playground() {
                 sx={{
                   fontWeight: "bold",
                   fontSize: "20px",
-                  fontFamily: useFont,
+                  fontFamily: useFont.bold,
                 }}
               >
                 <Ticker></Ticker>
@@ -49,7 +49,7 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont.bold }}>
               Youtube Embed
             </Typography>
           </Box>
@@ -74,7 +74,7 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont.bold }}>
               Youtube Embed
             </Typography>
           </Box>
@@ -100,7 +100,9 @@ export default function Playground() {
         <Grid item xs={2}>
           <Box>
             <Marquee>
-              <Typography sx={{ fontFamily: useFont }}>{t("lorem")}</Typography>
+              <Typography sx={{ fontFamily: useFont.light }}>
+                {t("lorem")}
+              </Typography>
             </Marquee>
           </Box>
         </Grid>
@@ -114,7 +116,7 @@ export default function Playground() {
               alignItems: "center",
             }}
           >
-            <Typography sx={{ fontSize: "14px", fontFamily: useFont }}>
+            <Typography sx={{ fontSize: "14px", fontFamily: useFont.bold }}>
               Soundcloud & Spotify Embed
             </Typography>
           </Box>
