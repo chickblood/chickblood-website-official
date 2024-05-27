@@ -117,7 +117,7 @@ function LandingPage() {
                 color="inherit"
                 sx={{
                   fontSize: "0.7rem",
-                  fontFamily: useFont,
+                  fontFamily: useFont.bold,
                 }}
                 onClick={() => {
                   navigate("/story");
@@ -132,7 +132,7 @@ function LandingPage() {
                 size="small"
                 sx={{
                   fontSize: "0.7rem",
-                  fontFamily: useFont,
+                  fontFamily: useFont.bold,
                 }}
                 onClick={handleSubmit}
                 style={{
@@ -188,8 +188,8 @@ const customTheme = (outerTheme, useFont) =>
             },
           },
           input: {
-            fontSize: "0.8rem",
-            fontFamily: useFont,
+            fontSize: "1rem",
+            fontFamily: useFont.light,
           },
         },
       },
@@ -198,7 +198,7 @@ const customTheme = (outerTheme, useFont) =>
           root: {
             fontSize: "0.8rem",
             fontWeight: "400",
-            fontFamily: useFont,
+            fontFamily: useFont.bold,
           },
         },
       },

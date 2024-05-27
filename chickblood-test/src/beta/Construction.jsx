@@ -134,7 +134,7 @@ const Construction = () => {
           textAlign: "center",
           zIndex: 10,
           color: "#013994",
-          fontFamily: useFont,
+          fontFamily: useFont.bold,
         }}
       >
         {t("construction")} <br></br>{" "}
