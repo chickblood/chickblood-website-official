@@ -19,4 +19,6 @@ export const TRANSLATION_EN = {
   // construction
   construction: "This Page is Under Construction Now. Please Check Back Later!",
   background_credit: "(Background Art Based on Code from Keith Peters)",
+  // themse
+  toggle_mode: "Light/Dark Theme",
 };

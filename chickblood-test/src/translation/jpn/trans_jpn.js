@@ -19,4 +19,6 @@ export const TRANSLATION_JPN = {
   //construction
   construction: "このページは現在工事中です。後でまたチェックしてください！",
   background_credit: "(背景アートはKeith Petersのコードに基づいています。)",
+  // themse
+  toggle_mode: "昼/夜モード",
 };
