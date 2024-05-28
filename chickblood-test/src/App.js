@@ -7,6 +7,7 @@ import Playground from "./beta/Playground";
 import CustomCursor from "./utils/CustomCursor";
 import "./App.css";
 import useFontFamily from "./hooks/useFontFamily";
+import ThemeProvider from "./context/ThemeProvider";
 
 function Layout({ children }) {
   return (
@@ -21,13 +22,15 @@ function App() {
   useFontFamily();
   return (
     <React.Fragment>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/story" element={<Story />} />
-          <Route path="/playground" element={<Playground />} />
-        </Route>
-      </Routes>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/story" element={<Story />} />
+            <Route path="/playground" element={<Playground />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

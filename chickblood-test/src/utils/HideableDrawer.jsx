@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import CustomCursor from "./CustomCursor";
 import LanguageBTN from "./LanguageBTN";
 import useFontFamily from "../hooks/useFontFamily";
+import ThemeToggleButton from "../context/ThemeToggleButton";
 
 /**
  * Main Component.
@@ -155,6 +156,11 @@ export default function HideableDrawer() {
         </ListItem>
       </List>
       <Box style={{ flexGrow: 1 }} />
+      <Box
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      >
+        <ThemeToggleButton />
+      </Box>
       <Box
         p={3}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
