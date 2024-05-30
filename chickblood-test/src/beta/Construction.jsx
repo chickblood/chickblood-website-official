@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from "react";
-import p5 from "p5";
 import { Typography } from "@mui/material";
+import p5 from "p5";
+import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import useFontFamily from "../hooks/useFontFamily";
 
@@ -8,6 +8,7 @@ const Construction = () => {
   const { t } = useTranslation();
   const useFont = useFontFamily();
   const sketchRef = useRef();
+
 
   useEffect(() => {
     const numSegments = 15;
