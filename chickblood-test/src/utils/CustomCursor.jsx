@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 
-export default function CustomCursor({ size = 64 }) {
+export default function CustomCursor({ size = 192 }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -53,8 +53,8 @@ export default function CustomCursor({ size = 64 }) {
         <img
           src={
             isHoveringClickable
-              ? "/pics/cbicon_red.png"
-              : "/pics/cbicon_blk.png"
+              ? "/pics/cursors/custom-cursor-ms2.png"
+              : "/pics/cursors/custom-cursor-ms1.png"
           }
           alt="Custom Cursor"
           style={{
@@ -62,7 +62,7 @@ export default function CustomCursor({ size = 64 }) {
             left: `${position.x}px`,
             top: `${position.y}px`,
             pointerEvents: "none",
-            transform: "translate(-50%, -50%)",
+            transform: "translate(-29%, -25%)",
             zIndex: 1400,
             width: `${size}px`,
             height: `${size}px`,
