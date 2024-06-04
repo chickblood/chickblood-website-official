@@ -8,6 +8,8 @@ import CustomCursor from "./utils/CustomCursor";
 import "./App.css";
 import useFontFamily from "./hooks/useFontFamily";
 import ThemeProvider from "./context/ThemeProvider";
+import Blog from "./components/blog/Blog";
+import Issue1 from "./components/blog/issues/Issue1";
 
 function Layout({ children }) {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/story" element={<Story />} />
             <Route path="/playground" element={<Playground />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/issue1" element={<Issue1 />} />
           </Route>
         </Routes>
       </ThemeProvider>
