@@ -106,6 +106,7 @@ export default function Blog() {
                     />
                   </AnimatedListItemButton>
                 </ListItem>
+                {/* More Issues... */}
               </List>
             </Box>
           </Paper>
