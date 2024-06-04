@@ -19,5 +19,8 @@ export const TRANSLATION_CHN = {
   construction: "此页面正在建设中。请稍后再来查看！",
   background_credit: "(背景艺术基于Keith Peters的代码。)",
   // theming
-  toggle_mode: "白天/黑夜模式"
+  toggle_mode: "白天/黑夜模式",
+  // issues
+  issue1: "ISSUE #1 - 时代擦伤",
+  issuedummy: "ISSUE #N - 占位标题",
 };

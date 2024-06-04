@@ -21,4 +21,7 @@ export const TRANSLATION_JPN = {
   background_credit: "(背景アートはKeith Petersのコードに基づいています。)",
   // themse
   toggle_mode: "昼/夜モード",
+  // issues
+  issue1: "ISSUE #1 - 世代の傷痕",
+  issuedummy: "ISSUE #N - 仮タイトル",
 };
