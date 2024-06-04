@@ -29,10 +29,11 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
             <Route path="/story" element={<Story />} />
-            <Route path="/playground" element={<Playground />} />
+
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/issue1" element={<Issue1 />} />
           </Route>
+          <Route path="/playground" element={<Playground />} />
         </Routes>
       </ThemeProvider>
     </React.Fragment>
