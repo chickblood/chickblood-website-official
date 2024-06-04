@@ -62,7 +62,7 @@ export default function CustomCursor({ size = 192 }) {
             left: `${position.x}px`,
             top: `${position.y}px`,
             pointerEvents: "none",
-            transform: "translate(-29%, -25%)",
+            transform: "translate(-50%, -40%)", // -29 -25
             zIndex: 1400,
             width: `${size}px`,
             height: `${size}px`,
