@@ -21,4 +21,7 @@ export const TRANSLATION_EN = {
   background_credit: "(Background Art Based on Code from Keith Peters)",
   // themse
   toggle_mode: "Light/Dark Theme",
+  // issues
+  issue1: "ISSUE #1 - Generational Bruise",
+  issuedummy: "ISSUE #N - Dummy Title"
 };

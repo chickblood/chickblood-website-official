@@ -20,4 +20,7 @@ export const TRANSLATION_KRN = {
   background_credit: "(배경 아트는 Keith Peters의 코드를 바탕으로 합니다.)",
   // themse
   toggle_mode: "낮/밤 모드",
+  // issues
+  issue1: "ISSUE #1 - 세대상처",
+  issuedummy: "ISSUE #N - 가제목",
 };
