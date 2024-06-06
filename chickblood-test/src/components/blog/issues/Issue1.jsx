@@ -12,12 +12,17 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import { styled, useTheme } from "@mui/material/styles";
-import React from "react";
-import CustomCursor from "../../../utils/CustomCursor";
+import { styled } from "@mui/material/styles";
+import React, { useState } from "react";
 import useColorPalette from "../../../hooks/useColorPalette";
+import CustomCursor from "../../../utils/CustomCursor";
+import { useTranslation } from "react-i18next";
+import useFontFamily from "../../../hooks/useFontFamily";
+import { motion } from "framer-motion";
+import LanguageBTN from "../../../utils/LanguageBTN";
 
 export default function Issue1() {
+  const useFont = useFontFamily();
   return (
     <Box>
       <Grid
@@ -47,7 +52,18 @@ export default function Issue1() {
                 title="SPF 1"
               ></iframe>
             </Box>
-            <Box>linkslinks</Box>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              p={2}
+            >
+              <Typography sx={{ fontFamily: useFont.bold, fontSize: 14 }}>
+                hello i am a placeholder for 日本出的黑胶都会带的侧标那种格式
+              </Typography>
+            </Box>
           </Box>
         </Grid>
       </Grid>
@@ -60,7 +76,7 @@ export default function Issue1() {
           position: "absolute",
           left: "75%",
           top: 0,
-          bgcolor: "divider",
+          bgcolor: "#000000",
         }}
       />
     </Box>
@@ -89,18 +105,54 @@ const CustomDrawer = styled(Drawer)(({ theme, open }) => ({
 }));
 
 function IndexDrawer() {
-  const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
   const colorPalette = useColorPalette();
+  const { t } = useTranslation();
+  const useFont = useFontFamily();
+  const [content, setContent] = useState(t("dummycontent"));
+  /**
+   * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
+   **/
+  const ListItemTextStyle = {
+    "& .MuiListItemText-primary": {
+      fontSize: 13,
+      fontFamily: useFont.bold,
+    },
+    textAlign: "center",
+  };
+
+  const MotionListItemText = motion(ListItemText);
+  const AnimatedListItemText = ({ primary, sx, ...props }) => (
+    <MotionListItemText
+      primary={primary}
+      sx={sx}
+      whileHover={{ scale: 1 }}
+      style={{ originX: 0 }}
+      {...props}
+    />
+  );
+
+  /**
+   * ListItemButton Styles. Defines the Styling and motion of List Item Buttons.
+   **/
+  const MotionListItemButton = motion(ListItemButton);
+  const AnimatedListItemButton = ({ primary, sx, ...props }) => (
+    <MotionListItemButton
+      primary={primary}
+      sx={{ ...sx, borderRadius: 4 }}
+      whileHover={{ scale: 1.1 }}
+      {...props}
+    />
+  );
   return (
     <Box sx={{ display: "flex", cursor: "none" }}>
       <CustomDrawer variant="permanent" open={open}>
         <CustomCursor></CustomCursor>
-        <DrawerHeader>
-          <Box>
+        <Box overflow={"visible"}>
+          <DrawerHeader>
             {open ? (
               <Box mt={-3}>
                 <img
@@ -108,10 +160,11 @@ function IndexDrawer() {
                   alt="blog icon"
                   style={{ width: "240px", height: "240px" }}
                 ></img>
-                <Box p={1} mt={-4} style={{ zIndex: -1 }}>
+                <Box p={1} mt={-4}>
                   <Button
                     onClick={handleDrawerToggle}
                     variant="contained"
+                    disableElevation
                     style={{
                       width: "100%",
                       cursor: "none",
@@ -119,47 +172,112 @@ function IndexDrawer() {
                       color: colorPalette.black,
                     }}
                   >
+                    <Typography sx={{ fontFamily: useFont.bold, fontSize: 12 }}>
+                      {t("hidebar")}
+                    </Typography>
                     {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
                   </Button>
                 </Box>
               </Box>
             ) : (
-              <Button onClick={handleDrawerToggle}>
-                {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-              </Button>
+              <Box mr={0.5}>
+                <Button
+                  onClick={handleDrawerToggle}
+                  variant="contained"
+                  style={{
+                    cursor: "none",
+                    borderRadius: 10,
+                    backgroundColor: colorPalette.pear,
+                    color: colorPalette.black,
+                  }}
+                >
+                  {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                </Button>
+              </Box>
             )}
-          </Box>
-        </DrawerHeader>
-        <Divider />
+          </DrawerHeader>
+        </Box>
+        <Divider sx={{ mt: 2, mb: 1 }} color={"#000000"} />
         {/* Drawer List that controls items inside the blog */}
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary={"Index 1"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary={"Index 2"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary={"Index 3"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary={"Index 4"} />
-            </ListItemButton>
-          </ListItem>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary={"Index 5"} />
-            </ListItemButton>
-          </ListItem>
-        </List>
-        <Divider />
+        <Box mb={2}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              p: 1,
+            }}
+          >
+            <Typography sx={{ fontSize: 15, fontFamily: useFont.bold }}>
+              {t("index")}
+            </Typography>
+          </Box>
+          <List disablePadding>
+            <ListItem disablePadding>
+              <AnimatedListItemButton>
+                <AnimatedListItemText
+                  primary={open ? t("dummyheading") : "1"}
+                  sx={ListItemTextStyle}
+                  onClick={() => {
+                    setContent(t("dummycontent"));
+                  }}
+                />
+              </AnimatedListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <AnimatedListItemButton>
+                <AnimatedListItemText
+                  primary={open ? t("dummyheading") : "2"}
+                  sx={ListItemTextStyle}
+                  onClick={() => {
+                    setContent(t("dummycontent_reverse"));
+                  }}
+                />
+              </AnimatedListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <AnimatedListItemButton>
+                <AnimatedListItemText
+                  primary={open ? t("dummyheading") : "3"}
+                  sx={ListItemTextStyle}
+                  onClick={() => {
+                    setContent(t("dummycontent_reverse"));
+                  }}
+                />
+              </AnimatedListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <AnimatedListItemButton>
+                <AnimatedListItemText
+                  primary={open ? t("dummyheading") : "4"}
+                  sx={ListItemTextStyle}
+                  onClick={() => {
+                    setContent(t("dummycontent_reverse"));
+                  }}
+                />
+              </AnimatedListItemButton>
+            </ListItem>
+            <ListItem disablePadding>
+              <AnimatedListItemButton>
+                <AnimatedListItemText
+                  primary={open ? t("dummyheading") : "5"}
+                  sx={ListItemTextStyle}
+                  onClick={() => {
+                    setContent(t("dummycontent_reverse"));
+                  }}
+                />
+              </AnimatedListItemButton>
+            </ListItem>
+          </List>
+        </Box>
+        <Divider color={"#000000"} />
+        <Box sx={{ height: "100%", width: "100%" }}>
+          {open && (
+            <Box p={1}>
+              <LanguageBTN />
+            </Box>
+          )}
+        </Box>
       </CustomDrawer>
       <Box
         component="main"
@@ -169,81 +287,11 @@ function IndexDrawer() {
           overflow: "auto",
         }}
       >
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, unde
-          error quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Aliquid, unde error quisquam beatae eius consequuntur ratione
-          consequatur, corrupti perspiciatis quam veritatis necessitatibus qui
-          fuga ad quas, nemo odit eaque dolorem.Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Aliquid, unde error quisquam beatae eius
-          consequuntur ratione consequatur, corrupti perspiciatis quam veritatis
-          necessitatibus qui fuga ad quas, nemo odit eaque dolorem.Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Aliquid, unde error
-          quisquam beatae eius consequuntur ratione consequatur, corrupti
-          perspiciatis quam veritatis necessitatibus qui fuga ad quas, nemo odit
-          eaque dolorem.
+        <Typography paragraph sx={{ fontSize: 16, fontFamily: useFont.light }}>
+          {content}
+          <br></br>
+          <br></br>
+          {content}
         </Typography>
       </Box>
     </Box>

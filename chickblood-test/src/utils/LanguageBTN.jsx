@@ -41,6 +41,7 @@ export default function LanguageBTN() {
         style={{
           cursor: "none",
           backgroundColor: colorPalette.pear,
+          width: "100%",
         }}
       >
         <LanguageIcon style={{ color: colorPalette.black }}></LanguageIcon>
