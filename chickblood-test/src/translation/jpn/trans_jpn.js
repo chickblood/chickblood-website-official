@@ -30,4 +30,5 @@ export const TRANSLATION_JPN = {
   dummycontent1: "インデックス 1 の内容",
   dummycontent2: "インデックス 2 の内容",
   dummycontent3: "インデックス 3 の内容",
+  backtoblog: "ブログに戻る",
 };

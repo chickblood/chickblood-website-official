@@ -20,6 +20,7 @@ import useColorPalette from "../../../hooks/useColorPalette";
 import useFontFamily from "../../../hooks/useFontFamily";
 import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
+import BlogBackBTN from "../../../utils/BlogBackBTN";
 
 export default function Issue1() {
   const useFont = useFontFamily();
@@ -252,8 +253,13 @@ function IndexDrawer() {
         <Divider color={"#000000"} />
         <Box sx={{ height: "100%", width: "100%" }}>
           {open && (
-            <Box p={1}>
-              <LanguageBTN />
+            <Box>
+              <Box p={1}>
+                <LanguageBTN />
+              </Box>
+              <Box p={1}>
+                <BlogBackBTN />
+              </Box>
             </Box>
           )}
         </Box>

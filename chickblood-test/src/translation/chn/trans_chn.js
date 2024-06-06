@@ -30,4 +30,5 @@ export const TRANSLATION_CHN = {
   dummycontent1: "索引1内容",
   dummycontent2: "索引2内容",
   dummycontent3: "索引3内容",
+  backtoblog: "返回博客",
 };
