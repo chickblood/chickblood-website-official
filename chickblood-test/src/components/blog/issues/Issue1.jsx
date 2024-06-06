@@ -14,13 +14,12 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import React, { useEffect, useState, useCallback, useRef } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useColorPalette from "../../../hooks/useColorPalette";
 import useFontFamily from "../../../hooks/useFontFamily";
 import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
-import { debounce } from "lodash";
 
 export default function Issue1() {
   const useFont = useFontFamily();
@@ -111,9 +110,9 @@ function IndexDrawer() {
     setOpen(!open);
   };
   const colorPalette = useColorPalette();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const useFont = useFontFamily();
-  const [content, setContent] = useState(t("dummycontent"));
+  const [content, setContent] = useState(1);
   /**
    * ListItemText Styles. Defines the FontSize/Family and Motion of List Item Texts.
    **/
@@ -148,25 +147,6 @@ function IndexDrawer() {
       {...props}
     />
   ));
-
-  /*
-   * Debounce functions for rapid changes in content
-   */
-  const setContentDebounced = useRef(
-    debounce((contentKey) => {
-      setContent(t(contentKey));
-    }, 100)
-  );
-
-  useEffect(() => {
-    setContentDebounced.current = debounce((contentKey) => {
-      setContent(t(contentKey));
-    }, 100);
-  }, [t]);
-
-  const updateContent = useCallback((contentKey) => {
-    setContentDebounced.current(contentKey);
-  }, []);
 
   return (
     <Box sx={{ display: "flex", cursor: "none" }}>
@@ -240,7 +220,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "1"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    updateContent("dummycontent");
+                    setContent(1);
                   }}
                 />
               </AnimatedListItemButton>
@@ -251,7 +231,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "2"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    updateContent("dummycontent_reverse");
+                    setContent(2);
                   }}
                 />
               </AnimatedListItemButton>
@@ -262,29 +242,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "3"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    updateContent("dummycontent");
-                  }}
-                />
-              </AnimatedListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <AnimatedListItemButton>
-                <AnimatedListItemText
-                  primary={open ? t("dummyheading") : "4"}
-                  sx={ListItemTextStyle}
-                  onClick={() => {
-                    updateContent("dummycontent_reverse");
-                  }}
-                />
-              </AnimatedListItemButton>
-            </ListItem>
-            <ListItem disablePadding>
-              <AnimatedListItemButton>
-                <AnimatedListItemText
-                  primary={open ? t("dummyheading") : "5"}
-                  sx={ListItemTextStyle}
-                  onClick={() => {
-                    updateContent("dummycontent");
+                    setContent(3);
                   }}
                 />
               </AnimatedListItemButton>
@@ -308,17 +266,50 @@ function IndexDrawer() {
           overflow: "auto",
         }}
       >
-        <Typography
-          paragraph
-          key={i18n.language}
-          sx={{ fontSize: 16, fontFamily: useFont.light }}
-        >
-          {content}
-          <br></br>
-          <br></br>
-          {content}
-        </Typography>
+        {content === 1 ? (
+          <Section1 />
+        ) : content === 2 ? (
+          <Section2 />
+        ) : content === 3 ? (
+          <Section3 />
+        ) : null}
       </Box>
     </Box>
   );
 }
+
+const Section1 = () => {
+  const useFont = useFontFamily();
+  const { t } = useTranslation();
+  return (
+    <div>
+      <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
+        {t("dummycontent1")}
+      </Typography>
+    </div>
+  );
+};
+
+const Section2 = () => {
+  const useFont = useFontFamily();
+  const { t } = useTranslation();
+  return (
+    <div>
+      <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
+        {t("dummycontent2")}
+      </Typography>
+    </div>
+  );
+};
+
+const Section3 = () => {
+  const useFont = useFontFamily();
+  const { t } = useTranslation();
+  return (
+    <div>
+      <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
+        {t("dummycontent3")}
+      </Typography>
+    </div>
+  );
+};
