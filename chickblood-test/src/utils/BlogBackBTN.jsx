@@ -15,6 +15,7 @@ export default function BlogBackBTN() {
     <div>
       <Button
         variant="contained"
+        disableElevation
         style={{
           cursor: "none",
           backgroundColor: colorPalette.pear,
