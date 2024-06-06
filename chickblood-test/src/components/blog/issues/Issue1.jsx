@@ -2,10 +2,10 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {
   Box,
+  Button,
   Divider,
   Drawer,
   Grid,
-  IconButton,
   List,
   ListItem,
   ListItemButton,
@@ -15,38 +15,54 @@ import {
 import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
 import CustomCursor from "../../../utils/CustomCursor";
+import useColorPalette from "../../../hooks/useColorPalette";
 
 export default function Issue1() {
   return (
-    <Box sx={{ overflow: "hidden" }}>
-      {/* This grid should be unscrollable */}
+    <Box>
       <Grid
         container
         sx={{
-          position: "absolute",
+          width: "100%",
+          height: "100vh",
         }}
       >
-        {/* This grid should be scrollabble upon overflow */}
-        <Grid item xs={9} sx={{ overflow: "hidden" }}>
+        {/* Drawer & Content */}
+        <Grid item xs={9} sx={{ overflow: "auto", height: "100vh" }}>
           <Box>
             <IndexDrawer />
           </Box>
         </Grid>
-        {/* This grid should be unscrollable */}
-        <Grid item xs={3} sx={{ overflow: "hidden" }}>
-          <Box>
-            <iframe
-              style={{ borderRadius: "12px", padding: 4 }}
-              src="https://open.spotify.com/embed/playlist/1nHHxMzRJVaD6Cru1okKxd?utm_source=generator"
-              width="100%"
-              height="360px"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              title="SPF 1"
-            ></iframe>
+
+        {/* Spotify Embed & About Page */}
+        <Grid item xs={3}>
+          <Box sx={{ overflow: "visible", height: "100vh" }}>
+            <Box p={2}>
+              <iframe
+                style={{ borderRadius: "12px", padding: 4 }}
+                src="https://open.spotify.com/embed/playlist/1nHHxMzRJVaD6Cru1okKxd?utm_source=generator"
+                width="100%"
+                height="360px"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                title="SPF 1"
+              ></iframe>
+            </Box>
+            <Box>linkslinks</Box>
           </Box>
-          <Box>linkslinks</Box>
         </Grid>
       </Grid>
+      {/* divider with absolute position */}
+      <Divider
+        orientation="vertical"
+        flexItem
+        sx={{
+          height: "100vh",
+          position: "absolute",
+          left: "75%",
+          top: 0,
+          bgcolor: "divider",
+        }}
+      />
     </Box>
   );
 }
@@ -58,7 +74,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
 }));
 
@@ -79,19 +94,41 @@ function IndexDrawer() {
   const handleDrawerToggle = () => {
     setOpen(!open);
   };
-
+  const colorPalette = useColorPalette();
   return (
     <Box sx={{ display: "flex", cursor: "none" }}>
       <CustomDrawer variant="permanent" open={open}>
         <CustomCursor></CustomCursor>
         <DrawerHeader>
-          <IconButton onClick={handleDrawerToggle}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
+          <Box>
+            {open ? (
+              <Box mt={-3}>
+                <img
+                  src="/pics/icons/blog_icon.png"
+                  alt="blog icon"
+                  style={{ width: "240px", height: "240px" }}
+                ></img>
+                <Box p={1} mt={-4} style={{ zIndex: -1 }}>
+                  <Button
+                    onClick={handleDrawerToggle}
+                    variant="contained"
+                    style={{
+                      width: "100%",
+                      cursor: "none",
+                      backgroundColor: colorPalette.pear,
+                      color: colorPalette.black,
+                    }}
+                  >
+                    {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                  </Button>
+                </Box>
+              </Box>
             ) : (
-              <ChevronLeftIcon />
+              <Button onClick={handleDrawerToggle}>
+                {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              </Button>
             )}
-          </IconButton>
+          </Box>
         </DrawerHeader>
         <Divider />
         {/* Drawer List that controls items inside the blog */}
@@ -130,10 +167,8 @@ function IndexDrawer() {
           flexGrow: 1,
           p: 3,
           overflow: "auto",
-          //   height: "calc(100vh - 100px)",
         }}
       >
-        header
         <Typography paragraph>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, unde
           error quisquam beatae eius consequuntur ratione consequatur, corrupti
