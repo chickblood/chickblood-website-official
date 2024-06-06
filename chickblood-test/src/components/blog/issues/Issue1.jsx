@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import React from "react";
+import CustomCursor from "../../../utils/CustomCursor";
 
 export default function Issue1() {
   return (
@@ -80,8 +81,9 @@ function IndexDrawer() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", cursor: "none" }}>
       <CustomDrawer variant="permanent" open={open}>
+        <CustomCursor></CustomCursor>
         <DrawerHeader>
           <IconButton onClick={handleDrawerToggle}>
             {theme.direction === "rtl" ? (
