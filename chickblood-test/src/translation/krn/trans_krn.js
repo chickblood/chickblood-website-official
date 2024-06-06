@@ -30,4 +30,5 @@ export const TRANSLATION_KRN = {
   dummycontent1: "인덱스 1 내용",
   dummycontent2: "인덱스 2 내용",
   dummycontent3: "인덱스 3 내용",
+  backtoblog: "블로그로돌아가기",
 };
