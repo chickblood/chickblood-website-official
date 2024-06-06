@@ -67,7 +67,7 @@ export default function CustomCursor({ size = 192 }) {
   return (
     <div
       className="custom-cursor-container"
-      style={{ position: "fixed", pointerEvents: "none", left: 0, top: 0 }}
+      style={{ position: "absolute", pointerEvents: "none", left: 0, top: 0 }}
     >
       {isVisible && (
         <img
@@ -79,7 +79,7 @@ export default function CustomCursor({ size = 192 }) {
           }
           alt="Custom Cursor"
           style={{
-            position: "fixed",
+            position: "absolute",
             pointerEvents: "none",
             transform: "translate(-50%, -40%)",
             zIndex: 1400,

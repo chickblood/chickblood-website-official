@@ -25,7 +25,6 @@ export default function LanguageBTN() {
   };
   const { t } = useTranslation();
   const colorPalette = useColorPalette();
-  console.log(colorPalette.pear);
   return (
     <div>
       <CustomCursor></CustomCursor>
