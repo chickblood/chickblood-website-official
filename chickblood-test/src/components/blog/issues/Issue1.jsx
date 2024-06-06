@@ -13,13 +13,14 @@ import {
   Typography,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import React, { useState } from "react";
-import useColorPalette from "../../../hooks/useColorPalette";
-import CustomCursor from "../../../utils/CustomCursor";
-import { useTranslation } from "react-i18next";
-import useFontFamily from "../../../hooks/useFontFamily";
 import { motion } from "framer-motion";
+import React, { useEffect, useState, useCallback, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import useColorPalette from "../../../hooks/useColorPalette";
+import useFontFamily from "../../../hooks/useFontFamily";
+import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
+import { debounce } from "lodash";
 
 export default function Issue1() {
   const useFont = useFontFamily();
@@ -110,7 +111,7 @@ function IndexDrawer() {
     setOpen(!open);
   };
   const colorPalette = useColorPalette();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const useFont = useFontFamily();
   const [content, setContent] = useState(t("dummycontent"));
   /**
@@ -139,14 +140,34 @@ function IndexDrawer() {
    * ListItemButton Styles. Defines the Styling and motion of List Item Buttons.
    **/
   const MotionListItemButton = motion(ListItemButton);
-  const AnimatedListItemButton = ({ primary, sx, ...props }) => (
+  const AnimatedListItemButton = React.memo(({ primary, sx, ...props }) => (
     <MotionListItemButton
       primary={primary}
       sx={{ ...sx, borderRadius: 4 }}
       whileHover={{ scale: 1.1 }}
       {...props}
     />
+  ));
+
+  /*
+   * Debounce functions for rapid changes in content
+   */
+  const setContentDebounced = useRef(
+    debounce((contentKey) => {
+      setContent(t(contentKey));
+    }, 100)
   );
+
+  useEffect(() => {
+    setContentDebounced.current = debounce((contentKey) => {
+      setContent(t(contentKey));
+    }, 100);
+  }, [t]);
+
+  const updateContent = useCallback((contentKey) => {
+    setContentDebounced.current(contentKey);
+  }, []);
+
   return (
     <Box sx={{ display: "flex", cursor: "none" }}>
       <CustomDrawer variant="permanent" open={open}>
@@ -219,7 +240,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "1"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    setContent(t("dummycontent"));
+                    updateContent("dummycontent");
                   }}
                 />
               </AnimatedListItemButton>
@@ -230,7 +251,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "2"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    setContent(t("dummycontent_reverse"));
+                    updateContent("dummycontent_reverse");
                   }}
                 />
               </AnimatedListItemButton>
@@ -241,7 +262,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "3"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    setContent(t("dummycontent_reverse"));
+                    updateContent("dummycontent");
                   }}
                 />
               </AnimatedListItemButton>
@@ -252,7 +273,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "4"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    setContent(t("dummycontent_reverse"));
+                    updateContent("dummycontent_reverse");
                   }}
                 />
               </AnimatedListItemButton>
@@ -263,7 +284,7 @@ function IndexDrawer() {
                   primary={open ? t("dummyheading") : "5"}
                   sx={ListItemTextStyle}
                   onClick={() => {
-                    setContent(t("dummycontent_reverse"));
+                    updateContent("dummycontent");
                   }}
                 />
               </AnimatedListItemButton>
@@ -287,7 +308,11 @@ function IndexDrawer() {
           overflow: "auto",
         }}
       >
-        <Typography paragraph sx={{ fontSize: 16, fontFamily: useFont.light }}>
+        <Typography
+          paragraph
+          key={i18n.language}
+          sx={{ fontSize: 16, fontFamily: useFont.light }}
+        >
           {content}
           <br></br>
           <br></br>
