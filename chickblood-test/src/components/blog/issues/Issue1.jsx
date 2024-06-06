@@ -218,7 +218,7 @@ function IndexDrawer() {
             <ListItem disablePadding>
               <AnimatedListItemButton>
                 <AnimatedListItemText
-                  primary={open ? t("dummyheading") : "1"}
+                  primary={open ? t("dummyheading") + "1" : "1"}
                   sx={ListItemTextStyle}
                   onClick={() => {
                     setContent(1);
@@ -229,7 +229,7 @@ function IndexDrawer() {
             <ListItem disablePadding>
               <AnimatedListItemButton>
                 <AnimatedListItemText
-                  primary={open ? t("dummyheading") : "2"}
+                  primary={open ? t("dummyheading") + "2" : "2"}
                   sx={ListItemTextStyle}
                   onClick={() => {
                     setContent(2);
@@ -240,7 +240,7 @@ function IndexDrawer() {
             <ListItem disablePadding>
               <AnimatedListItemButton>
                 <AnimatedListItemText
-                  primary={open ? t("dummyheading") : "3"}
+                  primary={open ? t("dummyheading") + "3" : "3"}
                   sx={ListItemTextStyle}
                   onClick={() => {
                     setContent(3);
@@ -291,6 +291,12 @@ const Section1 = () => {
     <div>
       <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
         {t("dummycontent1")}
+        <br />
+        <br />
+        {t("dummycontent1")}
+        <br />
+        <br />
+        {t("dummycontent1")}
       </Typography>
     </div>
   );
@@ -303,6 +309,12 @@ const Section2 = () => {
     <div>
       <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
         {t("dummycontent2")}
+        <br />
+        <br />
+        {t("dummycontent2")}
+        <br />
+        <br />
+        {t("dummycontent2")}
       </Typography>
     </div>
   );
@@ -314,6 +326,12 @@ const Section3 = () => {
   return (
     <div>
       <Typography sx={{ fontSize: 16, fontFamily: useFont.light }}>
+        {t("dummycontent3")}
+        <br />
+        <br />
+        {t("dummycontent3")}
+        <br />
+        <br />
         {t("dummycontent3")}
       </Typography>
     </div>
