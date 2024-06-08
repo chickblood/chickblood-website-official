@@ -31,9 +31,9 @@ function App() {
             <Route path="/story" element={<Story />} />
 
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/issue1" element={<Issue1 />} />
           </Route>
           <Route path="/playground" element={<Playground />} />
+          <Route path="/blog/issue1" element={<Issue1 />} />
         </Routes>
       </ThemeProvider>
     </React.Fragment>

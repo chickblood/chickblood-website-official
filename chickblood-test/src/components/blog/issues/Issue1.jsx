@@ -18,12 +18,19 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useColorPalette from "../../../hooks/useColorPalette";
 import useFontFamily from "../../../hooks/useFontFamily";
+import BlogBackBTN from "../../../utils/BlogBackBTN";
 import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
-import BlogBackBTN from "../../../utils/BlogBackBTN";
 
 export default function Issue1() {
-  const useFont = useFontFamily();
+  const [inIframe, setInIframe] = useState(false);
+  const handleMouseEnter = () => {
+    setInIframe(true);
+  };
+
+  const handleMouseLeave = () => {
+    setInIframe(false);
+  };
   return (
     <Box>
       <Grid
@@ -33,6 +40,7 @@ export default function Issue1() {
           height: "100vh",
         }}
       >
+        {!inIframe && <CustomCursor />}
         {/* Drawer & Content */}
         <Grid item xs={9} sx={{ overflow: "auto", height: "100vh" }}>
           <Box>
@@ -43,28 +51,18 @@ export default function Issue1() {
         {/* Spotify Embed & About Page */}
         <Grid item xs={3}>
           <Box sx={{ overflow: "visible", height: "100vh" }}>
-            <Box p={2}>
+            <Box p={2} height={"100%"}>
               <iframe
                 style={{ borderRadius: "12px", padding: 4 }}
                 src="https://open.spotify.com/embed/playlist/1nHHxMzRJVaD6Cru1okKxd?utm_source=generator"
                 width="100%"
-                height="680px"
+                height="100%"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 title="SPF 1"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               ></iframe>
             </Box>
-            {/* <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              p={2}
-            >
-              <Typography sx={{ fontFamily: useFont.bold, fontSize: 14 }}>
-                hello i am a placeholder for 日本出的黑胶都会带的侧标那种格式
-              </Typography>
-            </Box> */}
           </Box>
         </Grid>
       </Grid>
@@ -283,6 +281,10 @@ function IndexDrawer() {
     </Box>
   );
 }
+
+/**
+ * Sections refers to the content of each sections.
+ */
 
 const Section1 = () => {
   const useFont = useFontFamily();
