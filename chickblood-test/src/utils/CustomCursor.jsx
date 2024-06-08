@@ -2,7 +2,7 @@ import { throttle } from "lodash";
 import React, { useEffect, useRef } from "react";
 import "../App.css";
 
-export default function CustomCursor({ size = 192 }) {
+export default function CustomCursor({ size = 128 }) {
   const [isHoveringClickable, setIsHoveringClickable] = React.useState(false);
   const [isVisible, setIsVisible] = React.useState(true);
   const positionRef = useRef({ x: 0, y: 0 });
