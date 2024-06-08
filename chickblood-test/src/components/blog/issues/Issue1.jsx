@@ -48,12 +48,12 @@ export default function Issue1() {
                 style={{ borderRadius: "12px", padding: 4 }}
                 src="https://open.spotify.com/embed/playlist/1nHHxMzRJVaD6Cru1okKxd?utm_source=generator"
                 width="100%"
-                height="360px"
+                height="680px"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                 title="SPF 1"
               ></iframe>
             </Box>
-            <Box
+            {/* <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -64,7 +64,7 @@ export default function Issue1() {
               <Typography sx={{ fontFamily: useFont.bold, fontSize: 14 }}>
                 hello i am a placeholder for 日本出的黑胶都会带的侧标那种格式
               </Typography>
-            </Box>
+            </Box> */}
           </Box>
         </Grid>
       </Grid>
