@@ -1,9 +1,9 @@
 # chickblood
 
 ## Custom Hooks
-Custom hooks are created to better manage global states. Below are documentations on how to use them further.
+Custom hooks are created to better manage global states. Below are documentations on how to use them in future development.
 
-### useColorPalette.js & ThemeProvider
+### Theming & Coloring
 #### useColorPalette hook 
 Mananges colors appear in this project. It is defined in ```chickblood-test/src/hooks/useColorPalette.js```
 To use it:
@@ -12,15 +12,12 @@ import useColorPalette from ".../hooks/useColorPalette";
 
 export default function Example() {
   const colorPalette = useColorPalette();
-  return (
-    <div>
-      <button
+  return <button
         style={{
           color: colorPalette.black,
           backgroundColor: corlorPalette.pear,
-        }}></button>
-    </div>
-  )
+        }}>
+      </button>
 }
 ```
 Currently colors are defined as: 
@@ -65,3 +62,55 @@ palette:{
 }
 ```
 
+### Language, Typography & Font
+#### Language (i18next)
+Our app uses i18next for internalization. (Almomst) all settings are located at ```chickblood-test/src/translation``` folder.
+##### i18n.js
+i18n.js contains the initializer for i18n. 
+1. ```debug``` is set to **true** during production, the framework logs detailed debugging info to console when settings are changed.
+2. ```react.useSuspense``` is set to false. If future production adds the use of <Suspense></Suspense>, setting it to **true** will support fallbacks on loading behaviors.
+3. Resources for each language are provided (en, chn, krn, jpn), each maps to the translation objects located in ```translation``` folder. The default fallback language is english.
+4. ```LanguageDetector``` option is used to detect user's langauge environment and will set default language correspondingly.
+
+To use it:
+```
+import { useTranslation } from 'react-i18next';
+
+function Example() {
+  const { t } = useTranslation();
+  return <p>{t('key')}</p>;
+}
+```
+Note that 'key' here refer to a key-value pair that exists in the translation filde.
+
+Accessing current language:
+```console.log(i18n.language)```
+
+Changing language:
+```
+function switchLanguage(languageCode) {
+  i18n.changeLanguage(languageCode);
+}
+```
+#### Typography & Font
+##### useFontFamily hook
+useFontFamily hook is created to better mangage the **font family** used for each langauge. useFontFamily.js is located at ```chickblood-test/src/hooks/useFontFamily.js```.
+
+Currently four languages are in use and each are bundled with a **light** and **bold** font family. The fonts used are:
+|       | en               | chn       | jpn                    | krn                   |
+| ----- | ---------------- | --------- | ---------------------- | --------------------- |
+| light | xsong(monospace) | xsong     | Hiragiro-Mincho-Pro-W3 | Pretendard-ExtraLight |
+| bold  | CHeiHK-UltraBold | DHeiFanTi | Hiragiro-Mincho-Pro-W6 | Pretendard-ExtraBold  |
+
+To use it:
+```
+import useFontFamily from "../hooks/useFontFamily";
+
+export default function Example(){
+    const useFont = useFontFamily();
+    return <Typography
+      sx={{
+        fontFamily: useFont.bold,
+      }}></Typography>
+}
+```
