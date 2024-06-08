@@ -1,7 +1,7 @@
 # chickblood
 
-## Hooks
-Hooks are created to better manage global states. Below are documentations on how to use them further.
+## Custom Hooks
+Custom hooks are created to better manage global states. Below are documentations on how to use them further.
 
 ### useColorPalette.js & ThemeProvider
 #### useColorPalette hook 
