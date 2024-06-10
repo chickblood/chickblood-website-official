@@ -10,6 +10,7 @@ import useFontFamily from "./hooks/useFontFamily";
 import ThemeProvider from "./context/ThemeProvider";
 import Blog from "./components/blog/Blog";
 import Issue1 from "./components/blog/issues/Issue1";
+import FallingTest from "./beta/FallingTest";
 
 function Layout({ children }) {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
           </Route>
           <Route path="/playground" element={<Playground />} />
+          <Route path="/falling" element={<FallingTest />} />
           <Route path="/blog/issue1" element={<Issue1 />} />
         </Routes>
       </ThemeProvider>
