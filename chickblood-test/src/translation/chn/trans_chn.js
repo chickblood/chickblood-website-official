@@ -32,4 +32,5 @@ export const TRANSLATION_CHN = {
   dummycontent2: "索引2内容",
   dummycontent3: "索引3内容",
   backtoblog: "返回博客",
+  linkcopied: "链接已复制到剪贴板",
 };

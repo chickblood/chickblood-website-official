@@ -35,4 +35,5 @@ export const TRANSLATION_EN = {
   dummycontent3:
     "Index 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 ContentIndex 3 Content",
   backtoblog: "Back to Blogs",
+  linkcopied: "Link has been copied to clipboard!"
 };

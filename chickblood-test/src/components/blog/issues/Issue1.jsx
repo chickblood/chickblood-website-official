@@ -21,13 +21,14 @@ import useFontFamily from "../../../hooks/useFontFamily";
 import BlogBackBTN from "../../../utils/BlogBackBTN";
 import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
+import ShareBTN from "../../../utils/ShareBTN";
 
 export default function Issue1() {
+  /** inFrame state detects if mouse is in iframe.  */
   const [inIframe, setInIframe] = useState(false);
   const handleMouseEnter = () => {
     setInIframe(true);
   };
-
   const handleMouseLeave = () => {
     setInIframe(false);
   };
@@ -151,6 +152,7 @@ function IndexDrawer() {
     <Box sx={{ display: "flex", cursor: "none" }}>
       <CustomDrawer variant="permanent" open={open}>
         <CustomCursor></CustomCursor>
+        {/* Header Section. Contains Icon and Hide Menu Button */}
         <Box overflow={"visible"}>
           <DrawerHeader>
             {open ? (
@@ -198,7 +200,8 @@ function IndexDrawer() {
           </DrawerHeader>
         </Box>
         <Divider sx={{ mt: 2, mb: 1 }} color={"#000000"} />
-        {/* Drawer List that controls items inside the blog */}
+        {/* Index Box
+          Drawer List that controls items inside the blog */}
         <Box mb={2}>
           <Box
             sx={{
@@ -249,14 +252,24 @@ function IndexDrawer() {
           </List>
         </Box>
         <Divider color={"#000000"} />
+        {/* Settings Box */}
         <Box sx={{ height: "100%", width: "100%" }}>
           {open && (
             <Box>
+              {/* Language Toggle Button */}
               <Box p={1}>
                 <LanguageBTN />
               </Box>
+              {/* Back to Blogs Button */}
               <Box p={1}>
                 <BlogBackBTN />
+              </Box>
+              {/* Share This Page Button */}
+              <Box p={1}>
+                <ShareBTN
+                  url={"http://localhost:3000/blog/issue1"}
+                  title={"Share This Page!"}
+                ></ShareBTN>
               </Box>
             </Box>
           )}
@@ -265,7 +278,6 @@ function IndexDrawer() {
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
           p: 3,
           overflow: "auto",
         }}
