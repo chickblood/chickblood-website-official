@@ -26,7 +26,7 @@ export default function BlogBackBTN() {
           navigate("/blog");
         }}
       >
-        <RiArrowGoBackLine size={"25px"}></RiArrowGoBackLine>
+        <RiArrowGoBackLine size={"20px"}></RiArrowGoBackLine>
         <Typography
           sx={{
             fontFamily: useFont.bold,

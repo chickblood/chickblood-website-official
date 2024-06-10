@@ -32,4 +32,5 @@ export const TRANSLATION_KRN = {
   dummycontent2: "인덱스 2 내용",
   dummycontent3: "인덱스 3 내용",
   backtoblog: "블로그로돌아가기",
+  linkcopied: "링크가 클립보드에 복사되었습니다",
 };
