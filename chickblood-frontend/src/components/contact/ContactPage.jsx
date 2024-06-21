@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid } from "@mui/material";
+import { Box, Divider, Grid } from "@mui/material";
 import HideableDrawer from "../../utils/HideableDrawer";
 import EmailSender from "./EmailSender";
 
@@ -10,11 +10,35 @@ export default function ContactPage() {
         <HideableDrawer />
       </Box>
       <Grid container>
-        <Grid item xs={7}></Grid>
-        <Grid item xs={5} border={1} height={"100vh"} p={3}>
-          <EmailSender></EmailSender>
+        <Grid item xs={6}></Grid>
+        <Grid
+          item
+          xs={6}
+          height={"100vh"}
+          p={3}
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box height={"70vh"} width={"100%"}>
+            <EmailSender></EmailSender>
+          </Box>
         </Grid>
       </Grid>
+
+      <Divider
+        orientation="vertical"
+        flexItem
+        sx={{
+          height: "90vh",
+          position: "absolute",
+          left: "50%",
+          top: "5%",
+          bgcolor: "#000000",
+        }}
+      />
     </Box>
   );
 }
