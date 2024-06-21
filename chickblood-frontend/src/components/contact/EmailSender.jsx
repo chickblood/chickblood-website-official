@@ -62,7 +62,7 @@ export default function EmailSender() {
           textAlign={"center"}
         >
           <Typography sx={{ fontFamily: useFont.bold, fontSize: 20 }}>
-            Send us an Email
+            {t("sendusemail")}
           </Typography>
         </Box>
         {/* Name and Email */}
@@ -84,7 +84,7 @@ export default function EmailSender() {
               <Box width="80%">
                 {/* Name TextField */}
                 <TextField
-                  label="Name"
+                  label={t("yourname")}
                   onChange={handleNameChange}
                   fullWidth
                   variant="standard"
@@ -101,7 +101,7 @@ export default function EmailSender() {
               <Box width="80%">
                 {/* Email TextField */}
                 <TextField
-                  label="Email"
+                  label={t("youremail")}
                   onChange={handleEmailChange}
                   fullWidth
                   variant="standard"
@@ -124,7 +124,7 @@ export default function EmailSender() {
           <Box width="90%">
             {/* Title TextField */}
             <TextField
-              label="Title"
+              label={t("emailTitle")}
               onChange={handleTitleChange}
               fullWidth
               variant="standard"
@@ -145,7 +145,7 @@ export default function EmailSender() {
           <Box width={"90%"}>
             {/* Message TextField */}
             <TextField
-              label="Message"
+              label={t("emailMessage")}
               onChange={handleMessageChange}
               fullWidth
               variant="standard"
