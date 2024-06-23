@@ -2,15 +2,21 @@ import React from "react";
 import { Box, Divider, Grid } from "@mui/material";
 import HideableDrawer from "../../utils/HideableDrawer";
 import EmailSender from "./EmailSender";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function ContactPage() {
   return (
     <Box style={{ height: "100vh" }}>
-      <Box position="absolute" sx={{ marginLeft: "1%", marginTop: "1%" }}>
+      <Box
+        position="absolute"
+        sx={{ marginLeft: "1%", marginTop: "1%", zIndex: 1000 }}
+      >
         <HideableDrawer />
       </Box>
       <Grid container>
-        <Grid item xs={6}></Grid>
+        <Grid item xs={6}>
+          <SocialMediaLinks></SocialMediaLinks>
+        </Grid>
         <Grid
           item
           xs={6}
