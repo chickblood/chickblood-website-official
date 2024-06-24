@@ -66,12 +66,151 @@ export default function SocialMediaLinks() {
       },
     });
 
-    // Create ball
-    const ball = Bodies.circle(width / 2 - 1, 100, 60, {
+    // clickable balls ------------------------------------
+    // Create tiktok ball
+    // const tiktok = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/tiktok-icon.png",
+    //       xScale: 0.2,
+    //       yScale: 0.2,
+    //     },
+    //   },
+    // });
+    // // Create youtube ball
+    // const youtube = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/youtube-icon.webp",
+    //       xScale: 0.1,
+    //       yScale: 0.1,
+    //     },
+    //   },
+    // });
+    // // Create insta ball
+    // const insta = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/insta-icon.png",
+    //       xScale: 0.1,
+    //       yScale: 0.1,
+    //     },
+    //   },
+    // });
+    // // Create xhs ball
+    // const xhs = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/xhs-icon.webp",
+    //       xScale: 0.2,
+    //       yScale: 0.2,
+    //     },
+    //   },
+    // });
+    // // Create twitter ball
+    // const twitter = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/x-icon.webp",
+    //       xScale: 0.2,
+    //       yScale: 0.2,
+    //     },
+    //   },
+    // });
+    // // Create discord ball
+    // const discord = Bodies.circle(width / 2 - 1, 100, 50, {
+    //   restitution: 0.7,
+    //   density: 0.5,
+    //   render: {
+    //     sprite: {
+    //       texture: "/pics/icons/discord-icon.webp",
+    //       xScale: 0.1,
+    //       yScale: 0.1,
+    //     },
+    //   },
+    // });
+    // end clickable balls --------------------------------
+
+    // clickable rectangles --------------------------------
+    const tiktok = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
       restitution: 0.7,
       density: 0.5,
-      render: { fillStyle: "#ff5722" },
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/tiktok.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
     });
+
+    const insta = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
+      restitution: 0.7,
+      density: 0.5,
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/instagram.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
+    });
+
+    const youtube = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
+      restitution: 0.7,
+      density: 0.5,
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/youtube.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
+    });
+    const twitter = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
+      restitution: 0.7,
+      density: 0.5,
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/twitter.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
+    });
+    const discord = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
+      restitution: 0.7,
+      density: 0.5,
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/discord.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
+    });
+    const xhs = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
+      restitution: 0.7,
+      density: 0.5,
+      render: {
+        sprite: {
+          texture: "/pics/icons/media-icons/xhs.webp",
+          xScale: 0.2,
+          yScale: 0.2,
+        },
+      },
+    });
+    // end clickable rectangles ----------------------------
 
     // credit section - semicircle
     const creditSection = Matter.Bodies.circle(
@@ -92,10 +231,11 @@ export default function SocialMediaLinks() {
       leftWall,
       rightWall,
       roof,
-      ball,
       contactIcon,
       creditSection,
     ]);
+
+    World.add(engine.world, [tiktok, insta, youtube, twitter, discord, xhs]);
 
     const mouse = Matter.Mouse.create(render.canvas);
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
