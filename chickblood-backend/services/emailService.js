@@ -5,7 +5,7 @@ const sendEmail = async (userName, userEmail, emailTitle, emailMessage) => {
     from: "unitask370@gmail.com",
     to: "1051268839@qq.com",
     subject: "new msg from chickblood contact",
-    text: `From: ${userName}\n Email: ${userEmail}\n\n${emailMessage}\n\n${emailMessage}`,
+    text: `From: ${userName}\n\n Email: ${userEmail}\n\n Email Title: ${emailTitle}\n\n Email Message: ${emailMessage}`,
   };
 
   try {
