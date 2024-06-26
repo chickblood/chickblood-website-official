@@ -331,91 +331,21 @@ const CreditBox = () => {
     zIndex: -1,
     // backgroundColor: "red",
   };
-  function getFontSize(height) {
-    if (height < 350) {
-      return "5px";
-    } else if (height < 450) {
-      return "8px";
-    } else if (height < 500) {
-      return "12px";
-    } else if (height < 650) {
-      return "15px";
-    }
-    return "18px";
-  }
 
   return (
-    <div style={style}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "50%",
-          marginLeft: "5%",
-          height: "100%",
-          flexDirection: "column",
-        }}
-      >
-        <br></br>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          {t("artDirector")}
-        </Typography>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          Chzaza
-        </Typography>
-        <br></br>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          {t("iconDesigner")}
-        </Typography>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          Rita
-        </Typography>
-        <br></br>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          {t("webdev")}
-        </Typography>
-        <Typography
-          sx={{
-            whiteSpace: "pre-line",
-            fontFamily: useFont.bold,
-            fontSize: getFontSize(height),
-          }}
-        >
-          ROLF
-        </Typography>
-      </Box>
-    </div>
+    <Box
+      style={{
+        position: "absolute",
+        height: "50vh",
+        left: "50vw",
+        top: "25vh",
+      }}
+    >
+      <img
+        src="/pics/icons/CreditBoxBackground.png"
+        style={{ height: "100%" }}
+      ></img>
+    </Box>
   );
 };
 
