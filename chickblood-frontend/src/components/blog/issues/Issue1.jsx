@@ -36,13 +36,13 @@ export default function Issue1() {
   };
 
   /** Loader states */
-  const [openLoader, setOpenLoader] = React.useState(false); // this state controls the open and closing of loader
+  const [openLoader, setOpenLoader] = React.useState(true); // this state controls the open and closing of loader
   const handleClose = () => {
     setOpenLoader(false);
   };
-  const handleOpen = () => {
-    setOpenLoader(true);
-  };
+  // const handleOpen = () => {
+  //   setOpenLoader(true);
+  // };
 
   return (
     <Box>

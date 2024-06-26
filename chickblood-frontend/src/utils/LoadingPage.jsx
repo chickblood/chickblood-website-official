@@ -1,5 +1,5 @@
+import { Box, LinearProgress } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
-import CircularProgress from "@mui/material/CircularProgress";
 import * as React from "react";
 
 export default function LoadingPage({ openLoader, handleClose }) {
@@ -17,18 +17,32 @@ export default function LoadingPage({ openLoader, handleClose }) {
         open={openLoader}
         // onClick={handleClose}
       >
-        <img
-          src={
-            "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/df3521ea-558c-4087-a9b6-f585a0770b00/public"
-          }
-          alt="loader icon"
-          style={{
-            width: "50vh",
-            height: "50vh",
-            top: "10vh",
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
           }}
-        ></img>
-        {/* <CircularProgress color="inherit" /> */}
+        >
+          <Box>
+            <img
+              src={
+                "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/df3521ea-558c-4087-a9b6-f585a0770b00/public"
+              }
+              alt="loader icon"
+              style={{
+                width: "50vh",
+                height: "50vh",
+              }}
+            ></img>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Box sx={{ width: "70%", mt: "-10vh" }}>
+                <LinearProgress color="inherit" />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
       </Backdrop>
     </div>
   );
