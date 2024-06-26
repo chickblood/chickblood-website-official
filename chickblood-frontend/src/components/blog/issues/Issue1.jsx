@@ -23,6 +23,7 @@ import CustomCursor from "../../../utils/CustomCursor";
 import LanguageBTN from "../../../utils/LanguageBTN";
 import ShareBTN from "../../../utils/ShareBTN";
 import { ThemeContext } from "../../../context/ThemeProvider";
+import LoadingPage from "../../../utils/LoadingPage";
 
 export default function Issue1() {
   /** inFrame state detects if mouse is in iframe.  */
@@ -34,8 +35,21 @@ export default function Issue1() {
     setInIframe(false);
   };
 
+  /** Loader states */
+  const [openLoader, setOpenLoader] = React.useState(false); // this state controls the open and closing of loader
+  const handleClose = () => {
+    setOpenLoader(false);
+  };
+  const handleOpen = () => {
+    setOpenLoader(true);
+  };
+
   return (
     <Box>
+      <LoadingPage
+        openLoader={openLoader}
+        handleClose={handleClose}
+      ></LoadingPage>
       <Grid
         container
         sx={{

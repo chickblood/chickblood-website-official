@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 export default function SocialMediaLinks() {
   const sceneRef = useRef(null);
   const { width, height } = useWindowSize();
+  const { themeMode } = useContext(ThemeContext);
   useEffect(() => {
     // Module aliases
     const Engine = Matter.Engine,
@@ -43,13 +44,13 @@ export default function SocialMediaLinks() {
     });
 
     const rightWall = Bodies.rectangle(
-      width / 2 + 500,
+      (2 / 3) * width + 501,
       height / 2,
       1000,
-      height,
+      1000,
       {
         isStatic: true,
-        render: { fillStyle: "transparent", border: 1 },
+        render: { fillStyle: "red", border: 1 },
       }
     );
 
@@ -147,7 +148,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/tiktok.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2adf6338-6e0a-4ea7-7099-9c591fec2c00/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/aad5eaf8-af55-44d3-4eab-6b3bdec2e400/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -159,7 +163,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/instagram.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0df3a57f-37dd-4091-9732-1ce506050a00/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/f55854c8-1dce-4802-b918-c3f7696a2b00/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -171,7 +178,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/youtube.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2afd1f87-473a-4495-1c44-e4051e6ede00/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0cde38b6-375b-4bf1-ca26-3c4e783d9800/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -182,7 +192,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/twitter.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/083c031d-4b3c-407f-25bb-c4c431e46b00/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9c9e07e5-d08e-4045-3a5e-8d66c0437f00/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -193,7 +206,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/discord.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c76f1e33-cdee-4640-4f38-c33af52ecd00/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/109a74c0-26b2-4eeb-5a1e-083d24bea300/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -204,7 +220,10 @@ export default function SocialMediaLinks() {
       density: 0.5,
       render: {
         sprite: {
-          texture: "/pics/icons/media-icons/xhs.webp",
+          texture:
+            themeMode === "light"
+              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9b0bbe26-a577-41ed-f170-592327bf3800/public"
+              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/5728a3f5-e205-4119-f9f1-252527903100/public",
           xScale: 0.2,
           yScale: 0.2,
         },
@@ -214,7 +233,7 @@ export default function SocialMediaLinks() {
 
     // credit section - semicircle
     const creditSection = Matter.Bodies.circle(
-      width / 2,
+      (2 / 3) * width,
       height / 2,
       height / 4,
       {
@@ -264,7 +283,7 @@ export default function SocialMediaLinks() {
       render.context = null;
       render.textures = {};
     };
-  }, [width, height]);
+  }, [width, height, themeMode]);
 
   return (
     <div ref={sceneRef} style={{ position: "relative", overflow: "hidden" }}>
@@ -310,6 +329,7 @@ const CreditBox = () => {
     borderRadius: "50%",
     transform: "translate(-50%, -50%)",
     zIndex: -1,
+    // backgroundColor: "red",
   };
   function getFontSize(height) {
     if (height < 350) {
