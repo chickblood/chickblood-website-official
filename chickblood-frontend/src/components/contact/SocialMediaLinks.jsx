@@ -164,7 +164,7 @@ export default function SocialMediaLinks() {
       {
         isStatic: true,
         render: {
-          fillStyle: "transparent",
+          fillStyle: "red",
         },
       }
     );
@@ -193,7 +193,7 @@ export default function SocialMediaLinks() {
     Matter.World.add(engine.world, mouseConstraint);
 
     // Run the engine
-    Engine.run(engine);
+    Matter.Runner.run(engine);
 
     // Run the renderer
     Render.run(render);
@@ -245,7 +245,7 @@ const CreditBox = () => {
       style={{
         position: "absolute",
         height: "50vh",
-        left: "50vw",
+        right: "0vw",
         top: "25vh",
       }}
     >
