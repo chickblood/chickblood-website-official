@@ -1,9 +1,9 @@
+import { Box, Typography } from "@mui/material";
 import Matter from "matter-js";
 import { React, useContext, useEffect, useRef, useState } from "react";
-import { ThemeContext } from "../../context/ThemeProvider";
-import { Box, Typography } from "@mui/material";
-import useFontFamily from "../../hooks/useFontFamily";
 import { useTranslation } from "react-i18next";
+import { ThemeContext } from "../../context/ThemeProvider";
+import useFontFamily from "../../hooks/useFontFamily";
 
 export default function SocialMediaLinks() {
   const sceneRef = useRef(null);
@@ -66,81 +66,6 @@ export default function SocialMediaLinks() {
         fillStyle: "transparent",
       },
     });
-
-    // clickable balls ------------------------------------
-    // Create tiktok ball
-    // const tiktok = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/tiktok-icon.png",
-    //       xScale: 0.2,
-    //       yScale: 0.2,
-    //     },
-    //   },
-    // });
-    // // Create youtube ball
-    // const youtube = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/youtube-icon.webp",
-    //       xScale: 0.1,
-    //       yScale: 0.1,
-    //     },
-    //   },
-    // });
-    // // Create insta ball
-    // const insta = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/insta-icon.png",
-    //       xScale: 0.1,
-    //       yScale: 0.1,
-    //     },
-    //   },
-    // });
-    // // Create xhs ball
-    // const xhs = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/xhs-icon.webp",
-    //       xScale: 0.2,
-    //       yScale: 0.2,
-    //     },
-    //   },
-    // });
-    // // Create twitter ball
-    // const twitter = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/x-icon.webp",
-    //       xScale: 0.2,
-    //       yScale: 0.2,
-    //     },
-    //   },
-    // });
-    // // Create discord ball
-    // const discord = Bodies.circle(width / 2 - 1, 100, 50, {
-    //   restitution: 0.7,
-    //   density: 0.5,
-    //   render: {
-    //     sprite: {
-    //       texture: "/pics/icons/discord-icon.webp",
-    //       xScale: 0.1,
-    //       yScale: 0.1,
-    //     },
-    //   },
-    // });
-    // end clickable balls --------------------------------
 
     // clickable rectangles --------------------------------
     const tiktok = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
@@ -315,23 +240,6 @@ function useWindowSize() {
 }
 
 const CreditBox = () => {
-  const { themeMode } = useContext(ThemeContext);
-  const useFont = useFontFamily();
-  const { height } = useWindowSize();
-  const { t } = useTranslation();
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "100%",
-    width: "50vh",
-    height: "50vh",
-    border: themeMode === "light" ? "0.4px solid black" : "0.4px solid white",
-    borderRadius: "50%",
-    transform: "translate(-50%, -50%)",
-    zIndex: -1,
-    // backgroundColor: "red",
-  };
-
   return (
     <Box
       style={{
@@ -344,6 +252,7 @@ const CreditBox = () => {
       <img
         src="/pics/icons/CreditBoxBackground.png"
         style={{ height: "100%" }}
+        alt="credit box"
       ></img>
     </Box>
   );
