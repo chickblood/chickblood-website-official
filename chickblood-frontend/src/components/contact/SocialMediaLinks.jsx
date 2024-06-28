@@ -50,7 +50,7 @@ export default function SocialMediaLinks() {
       1000,
       {
         isStatic: true,
-        render: { fillStyle: "red", border: 1 },
+        render: { fillStyle: "transparent", border: 1 },
       }
     );
 
@@ -164,7 +164,7 @@ export default function SocialMediaLinks() {
       {
         isStatic: true,
         render: {
-          fillStyle: "red",
+          fillStyle: "transparent",
         },
       }
     );
