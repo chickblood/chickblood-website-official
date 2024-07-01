@@ -1,19 +1,19 @@
 import React from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import Story from "./components/Story";
-import "./translation/i18n";
-import Playground from "./beta/Playground";
-import CustomCursor from "./utils/CustomCursor";
 import "./App.css";
-import useFontFamily from "./hooks/useFontFamily";
-import ThemeProvider from "./context/ThemeProvider";
+import FallingTest from "./beta/FallingTest";
+import Playground from "./beta/Playground";
+import Test from "./beta/Test";
+import HomePage from "./components/HomePage";
+import LandingPage from "./components/LandingPage";
 import Blog from "./components/blog/Blog";
 import Issue1 from "./components/blog/issues/Issue1";
-import FallingTest from "./beta/FallingTest";
-import MemberPage from "./components/member/MemberPage";
 import ContactPage from "./components/contact/ContactPage";
-import Test from "./beta/Test";
+import MemberPage from "./components/member/MemberPage";
+import ThemeProvider from "./context/ThemeProvider";
+import useFontFamily from "./hooks/useFontFamily";
+import "./translation/i18n";
+import CustomCursor from "./utils/CustomCursor";
 
 function Layout({ children }) {
   return (
@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/story" element={<Story />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/member" element={<MemberPage />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<ContactPage />} />

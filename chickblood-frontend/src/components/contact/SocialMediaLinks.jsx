@@ -300,7 +300,7 @@ const CreditBox = () => {
       }}
     >
       <img
-        src="/pics/icons/CreditBoxBackground.png"
+        src="/pics/icons/credit_box_icon_light.png"
         style={{ height: "100%" }}
         alt="credit box"
       ></img>
@@ -341,6 +341,18 @@ const ContactIconBox = () => {
   return (
     <div style={style}>
       <Box
+        border={1}
+        sx={{ height: "100%", width: "100%", position: "absolute" }}
+      >
+        <img
+          src="pics/icons/contact_icon_background.png"
+          alt="contact icon background"
+          width="100%"
+          height="100%
+          "
+        ></img>
+      </Box>
+      <Box
         sx={{
           height: "60%",
           width: "60%",
@@ -355,6 +367,7 @@ const ContactIconBox = () => {
           {t("contactTitle")}
         </Typography>
       </Box>
+
       <img
         src={getImgSource(themeMode)}
         alt="blog icon"
