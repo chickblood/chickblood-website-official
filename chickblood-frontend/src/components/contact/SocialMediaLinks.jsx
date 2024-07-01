@@ -322,7 +322,7 @@ const ContactIconBox = () => {
     left: "-1px",
     borderTopRightRadius: "50.5vh",
     border: themeMode === "light" ? "1px solid black" : "0.4px solid white",
-    backgroundColor: themeMode === "light" ? "#FFFFFF" : "#222222",
+
     zIndex: -1,
   };
   function getImgSource(themeMode) {
@@ -338,20 +338,9 @@ const ContactIconBox = () => {
     }
     return "35px";
   }
+
   return (
     <div style={style}>
-      <Box
-        border={1}
-        sx={{ height: "100%", width: "100%", position: "absolute" }}
-      >
-        <img
-          src="pics/icons/contact_icon_background.png"
-          alt="contact icon background"
-          width="100%"
-          height="100%
-          "
-        ></img>
-      </Box>
       <Box
         sx={{
           height: "60%",
@@ -367,7 +356,6 @@ const ContactIconBox = () => {
           {t("contactTitle")}
         </Typography>
       </Box>
-
       <img
         src={getImgSource(themeMode)}
         alt="blog icon"

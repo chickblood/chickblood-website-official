@@ -7,7 +7,7 @@ import Test from "./beta/Test";
 import HomePage from "./components/HomePage";
 import LandingPage from "./components/LandingPage";
 import Blog from "./components/blog/Blog";
-import Issue1 from "./components/blog/issues/Issue1";
+import Issue1Main from "./components/blog/issues/Issue1Main";
 import ContactPage from "./components/contact/ContactPage";
 import MemberPage from "./components/member/MemberPage";
 import ThemeProvider from "./context/ThemeProvider";
@@ -39,7 +39,7 @@ function App() {
           </Route>
           <Route path="/playground" element={<Playground />} />
           <Route path="/falling" element={<FallingTest />} />
-          <Route path="/blog/issue1" element={<Issue1 />} />
+          <Route path="/blog/issue1" element={<Issue1Main />} />
           <Route path="/test" element={<Test />} />
         </Routes>
       </ThemeProvider>
