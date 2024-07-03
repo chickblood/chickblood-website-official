@@ -114,93 +114,131 @@ export default function SocialMediaLinks() {
       },
     });
 
+    //1223040
+
     // clickable rectangles --------------------------------
-    const tiktok = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2adf6338-6e0a-4ea7-7099-9c591fec2c00/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/aad5eaf8-af55-44d3-4eab-6b3bdec2e400/public",
-          xScale: 0.2,
-          yScale: 0.2,
+    const tiktok = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2adf6338-6e0a-4ea7-7099-9c591fec2c00/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/aad5eaf8-af55-44d3-4eab-6b3bdec2e400/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
+      }
+    );
 
-    const insta = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0df3a57f-37dd-4091-9732-1ce506050a00/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/f55854c8-1dce-4802-b918-c3f7696a2b00/public",
-          xScale: 0.2,
-          yScale: 0.2,
+    const insta = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0df3a57f-37dd-4091-9732-1ce506050a00/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/f55854c8-1dce-4802-b918-c3f7696a2b00/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
+      }
+    );
 
-    const youtube = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2afd1f87-473a-4495-1c44-e4051e6ede00/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0cde38b6-375b-4bf1-ca26-3c4e783d9800/public",
-          xScale: 0.2,
-          yScale: 0.2,
+    const youtube = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/2afd1f87-473a-4495-1c44-e4051e6ede00/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0cde38b6-375b-4bf1-ca26-3c4e783d9800/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
-    const twitter = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/083c031d-4b3c-407f-25bb-c4c431e46b00/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9c9e07e5-d08e-4045-3a5e-8d66c0437f00/public",
-          xScale: 0.2,
-          yScale: 0.2,
+      }
+    );
+    const twitter = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/083c031d-4b3c-407f-25bb-c4c431e46b00/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9c9e07e5-d08e-4045-3a5e-8d66c0437f00/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
-    const discord = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c76f1e33-cdee-4640-4f38-c33af52ecd00/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/109a74c0-26b2-4eeb-5a1e-083d24bea300/public",
-          xScale: 0.2,
-          yScale: 0.2,
+      }
+    );
+    const discord = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c76f1e33-cdee-4640-4f38-c33af52ecd00/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/109a74c0-26b2-4eeb-5a1e-083d24bea300/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
-    const xhs = Bodies.rectangle(width / 2 - 1, 0, 100, 100, {
-      restitution: 0.7,
-      density: 0.5,
-      render: {
-        sprite: {
-          texture:
-            themeMode === "light"
-              ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9b0bbe26-a577-41ed-f170-592327bf3800/public"
-              : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/5728a3f5-e205-4119-f9f1-252527903100/public",
-          xScale: 0.2,
-          yScale: 0.2,
+      }
+    );
+    const xhs = Bodies.rectangle(
+      width / 2 - 1,
+      0,
+      100 * (width / 1470),
+      100 * (width / 1470),
+      {
+        restitution: 0.7,
+        density: 0.5,
+        render: {
+          sprite: {
+            texture:
+              themeMode === "light"
+                ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/9b0bbe26-a577-41ed-f170-592327bf3800/public"
+                : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/5728a3f5-e205-4119-f9f1-252527903100/public",
+            xScale: 0.2 * (width / 1470),
+            yScale: 0.2 * (width / 1470),
+          },
         },
-      },
-    });
+      }
+    );
     // end clickable rectangles ----------------------------
 
     // credit section - semicircle
@@ -263,12 +301,10 @@ export default function SocialMediaLinks() {
         openLoader={openLoader}
         handleClose={handleCloseLoader}
       ></LoadingPage>
-      <Box sx={{ zIndex: -1 }}>
-        <CreditBox></CreditBox>
-      </Box>
-      <Box sx={{ zIndex: 1 }}>
-        <ContactIconBox></ContactIconBox>
-      </Box>
+
+      <CreditBox></CreditBox>
+
+      <ContactIconBox></ContactIconBox>
     </div>
   );
 }
@@ -333,7 +369,6 @@ const ContactIconBox = () => {
     borderTopRightRadius: "50.5vh",
     border: themeMode === "light" ? "1px solid black" : "0.4px solid white",
     backgroundColor: themeMode === "light" ? "#FFFFFF" : "#222222",
-    zIndex: -1,
   };
   function getImgSource(themeMode) {
     return themeMode === "light"
