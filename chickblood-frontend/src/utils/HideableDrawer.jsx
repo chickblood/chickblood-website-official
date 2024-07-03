@@ -170,12 +170,14 @@ export default function HideableDrawer() {
           </AnimatedListItemButton>
         </ListItem> */}
       </List>
-      <Box style={{ flexGrow: 1 }} />
+      <Box style={{ flexGrow: 0.95 }} />
       <Box
         p={1}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
-        <ThemeToggleButton />
+        <Box width={"85%"}>
+          <ThemeToggleButton />
+        </Box>
       </Box>
       <Box
         p={1}
