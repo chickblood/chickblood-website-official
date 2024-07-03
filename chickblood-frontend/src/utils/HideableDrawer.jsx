@@ -172,15 +172,22 @@ export default function HideableDrawer() {
       </List>
       <Box style={{ flexGrow: 1 }} />
       <Box
+        p={1}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
       >
         <ThemeToggleButton />
       </Box>
       <Box
-        p={3}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        p={1}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        <LanguageBTN />
+        <Box width={"85%"}>
+          <LanguageBTN />
+        </Box>
       </Box>
     </Box>
   );
