@@ -22,6 +22,8 @@ const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/5728a3f5-e205-4119-f9f1-252527903100/public",
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/a892f4ab-5495-42ad-1efa-441c10677c00/public",
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/aadf372c-9f3f-497d-89bc-163a31e4dd00/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/7981b3fb-f2b0-44a6-0446-63de50639a00/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/115b93bb-c2af-44d3-9667-2f57ee7a9500/public",
 ];
 
 export default function SocialMediaLinks() {
@@ -34,7 +36,6 @@ export default function SocialMediaLinks() {
     setOpenLoader(false);
   };
   const loadImage = (src) => {
-    console.log("Image loading.");
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.src = src;
@@ -262,8 +263,12 @@ export default function SocialMediaLinks() {
         openLoader={openLoader}
         handleClose={handleCloseLoader}
       ></LoadingPage>
-      <CreditBox></CreditBox>
-      <ContactIconBox></ContactIconBox>
+      <Box sx={{ zIndex: -1 }}>
+        <CreditBox></CreditBox>
+      </Box>
+      <Box sx={{ zIndex: 1 }}>
+        <ContactIconBox></ContactIconBox>
+      </Box>
     </div>
   );
 }
@@ -290,9 +295,10 @@ function useWindowSize() {
 }
 
 const CreditBox = () => {
+  const { themeMode } = useContext(ThemeContext);
   return (
     <Box
-      style={{
+      sx={{
         position: "absolute",
         height: "50vh",
         right: "0vw",
@@ -300,7 +306,11 @@ const CreditBox = () => {
       }}
     >
       <img
-        src="/pics/icons/credit_box_icon_light.png"
+        src={
+          themeMode === "light"
+            ? "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/7981b3fb-f2b0-44a6-0446-63de50639a00/public"
+            : "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/115b93bb-c2af-44d3-9667-2f57ee7a9500/public"
+        }
         style={{ height: "100%" }}
         alt="credit box"
       ></img>
@@ -322,7 +332,7 @@ const ContactIconBox = () => {
     left: "-1px",
     borderTopRightRadius: "50.5vh",
     border: themeMode === "light" ? "1px solid black" : "0.4px solid white",
-
+    backgroundColor: themeMode === "light" ? "#FFFFFF" : "#222222",
     zIndex: -1,
   };
   function getImgSource(themeMode) {
