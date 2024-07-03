@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 export default function Test() {
   const [loading, setLoading] = useState(true);
@@ -31,6 +31,7 @@ export default function Test() {
         p={8}
       >
         <iframe
+          title="example"
           src="https://open.spotify.com/embed/playlist/1nHHxMzRJVaD6Cru1okKxd?utm_source=generator"
           onLoad={handleLoad}
           onError={handleError}
