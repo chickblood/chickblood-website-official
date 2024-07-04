@@ -366,9 +366,9 @@ const ContactIconBox = () => {
     position: "absolute",
     bottom: "0",
     left: "-1px",
-    borderTopRightRadius: "50.5vh",
-    border: themeMode === "light" ? "1px solid black" : "0.4px solid white",
-    backgroundColor: themeMode === "light" ? "#FFFFFF" : "#222222",
+    // borderTopRightRadius: "50.5vh",
+    // border: themeMode === "light" ? "1px solid black" : "0.4px solid white",
+    // backgroundColor: themeMode === "light" ? "#FFFFFF" : "#222222",
   };
   function getImgSource(themeMode) {
     return themeMode === "light"
@@ -412,6 +412,22 @@ const ContactIconBox = () => {
           left: 0,
         }}
       ></img>
+      <Box
+        sx={{
+          width: "60vh",
+          height: "60vh",
+          bottom: 0,
+          position: "absolute",
+          left: 0,
+          zIndex: -2,
+        }}
+      >
+        <img
+          src="pics/icons/contactBoxIcon.png"
+          alt="blog icon"
+          style={{ height: "100%", width: "100%" }}
+        ></img>
+      </Box>
     </div>
   );
 };
