@@ -281,6 +281,7 @@ export default function ContactMain() {
   }, [width, height, themeMode]);
   return (
     <div ref={sceneRef} style={{ position: "relative", overflow: "hidden" }}>
+      {/* sorry im too lazy for media queries so i decided to come up with this pile of shit */}
       {/* background and other decor assets */}
       {/* contact page background (notepad) */}
       <img
@@ -293,21 +294,25 @@ export default function ContactMain() {
       {width > 900 && (
         <div>
           {/* contact decors----------------------------- */}
-          {/* upper left */}
-          <img
-            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/74d4e1a8-4b07-41af-3104-4744ec094c00/public"
-            alt="contact bg"
-            width={width / 3}
-            style={{ position: "absolute", zIndex: -100 }}
-          ></img>
+          {height > 600 && (
+            <div>
+              {/* upper left */}
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/74d4e1a8-4b07-41af-3104-4744ec094c00/public"
+                alt="contact bg"
+                width={width / 3}
+                style={{ position: "absolute", zIndex: -100 }}
+              ></img>
 
-          {/* upper right */}
-          <img
-            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/52e14b75-7679-4bfa-545b-cea8c0505800/public"
-            alt="contact bg"
-            width={width / 3}
-            style={{ position: "absolute", zIndex: -100, right: 0 }}
-          ></img>
+              {/* upper right */}
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/52e14b75-7679-4bfa-545b-cea8c0505800/public"
+                alt="contact bg"
+                width={width / 3}
+                style={{ position: "absolute", zIndex: -100, right: 0 }}
+              ></img>
+            </div>
+          )}
           {/* webdesigner: left */}
           <img
             src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/ec384392-03ff-4961-8f68-36d73a359000/public"
@@ -315,21 +320,29 @@ export default function ContactMain() {
             width={width / 4}
             style={{ position: "absolute", zIndex: -100, top: "35%" }}
           ></img>
-
-          {/* bottomright */}
-          <img
-            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/02ee5a4d-8771-4247-e150-a0f77807a700/public"
-            alt="contact bg"
-            width={width / 3}
-            style={{ position: "absolute", zIndex: -100, right: 0, bottom: 0 }}
-          ></img>
-          {/* bottomleft */}
-          <img
-            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/8997cd69-0f3e-4f09-3a86-892abceec900/public"
-            alt="contact bg"
-            width={width / 5}
-            style={{ position: "absolute", zIndex: -100, bottom: 0 }}
-          ></img>
+          {height > 600 && (
+            <div>
+              {/* bottomright */}
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/02ee5a4d-8771-4247-e150-a0f77807a700/public"
+                alt="contact bg"
+                width={width / 3}
+                style={{
+                  position: "absolute",
+                  zIndex: -100,
+                  right: 0,
+                  bottom: 0,
+                }}
+              ></img>
+              {/* bottomleft */}
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/8997cd69-0f3e-4f09-3a86-892abceec900/public"
+                alt="contact bg"
+                width={width / 5}
+                style={{ position: "absolute", zIndex: -100, bottom: 0 }}
+              ></img>
+            </div>
+          )}
           {height > 700 && (
             <div>
               {/* webdeveloper: bottom */}
