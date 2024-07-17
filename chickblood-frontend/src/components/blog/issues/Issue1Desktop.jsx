@@ -27,7 +27,7 @@ import ShareBTN from "../../../utils/ShareBTN";
 
 export default function Issue1Desktop() {
   /** inFrame state detects if mouse is in iframe.  */
-  const [inIframe, setInIframe] = useState(false);
+  // const [inIframe, setInIframe] = useState(false);
   // const handleMouseEnter = () => {
   //   setInIframe(true);
   // };
@@ -44,7 +44,7 @@ export default function Issue1Desktop() {
           height: "100vh",
         }}
       >
-        {!inIframe && <CustomCursor />}
+        <CustomCursor />
         {/* Drawer & Content */}
         <Grid item xs={12} sx={{ overflow: "auto", height: "100vh" }}>
           <Box>
