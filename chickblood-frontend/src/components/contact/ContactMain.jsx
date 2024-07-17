@@ -26,6 +26,12 @@ const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/7981b3fb-f2b0-44a6-0446-63de50639a00/public",
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/115b93bb-c2af-44d3-9667-2f57ee7a9500/public",
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c0ae9886-e48e-496f-88f8-a59461f44300/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/e79a3f1a-8140-4caa-c390-5d48819b3400/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/52e14b75-7679-4bfa-545b-cea8c0505800/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/84e4e2db-d7aa-4612-5282-9de4e74e2b00/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/ec384392-03ff-4961-8f68-36d73a359000/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/74d4e1a8-4b07-41af-3104-4744ec094c00/public",
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/8997cd69-0f3e-4f09-3a86-892abceec900/public",
 ];
 
 export default function ContactMain() {
@@ -86,10 +92,10 @@ export default function ContactMain() {
     });
 
     // Create walls and roof
-    const ground = Bodies.rectangle(width / 2, height + 500, width, 1000, {
-      isStatic: true,
-      render: { fillStyle: "#060a19" },
-    });
+    // const ground = Bodies.rectangle(width / 2, height + 500, width, 1000, {
+    //   isStatic: true,
+    //   render: { fillStyle: "#060a19" },
+    // });
 
     const leftWall = Bodies.rectangle(-500, height / 2, 1000, height, {
       isStatic: true,
@@ -275,6 +281,8 @@ export default function ContactMain() {
   }, [width, height, themeMode]);
   return (
     <div ref={sceneRef} style={{ position: "relative", overflow: "hidden" }}>
+      {/* background and other decor assets */}
+      {/* contact page background (notepad) */}
       <img
         src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c0ae9886-e48e-496f-88f8-a59461f44300/public"
         alt="contact bg"
@@ -282,6 +290,79 @@ export default function ContactMain() {
         width={width}
         style={{ position: "absolute", zIndex: -100 }}
       ></img>
+      {width > 900 && (
+        <div>
+          {/* contact decors----------------------------- */}
+          {/* upper left */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/74d4e1a8-4b07-41af-3104-4744ec094c00/public"
+            alt="contact bg"
+            width={width / 3}
+            style={{ position: "absolute", zIndex: -100 }}
+          ></img>
+
+          {/* upper right */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/52e14b75-7679-4bfa-545b-cea8c0505800/public"
+            alt="contact bg"
+            width={width / 3}
+            style={{ position: "absolute", zIndex: -100, right: 0 }}
+          ></img>
+          {/* webdesigner: left */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/ec384392-03ff-4961-8f68-36d73a359000/public"
+            alt="contact bg"
+            width={width / 4}
+            style={{ position: "absolute", zIndex: -100, top: "35%" }}
+          ></img>
+
+          {/* bottomright */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/02ee5a4d-8771-4247-e150-a0f77807a700/public"
+            alt="contact bg"
+            width={width / 3}
+            style={{ position: "absolute", zIndex: -100, right: 0, bottom: 0 }}
+          ></img>
+          {/* bottomleft */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/8997cd69-0f3e-4f09-3a86-892abceec900/public"
+            alt="contact bg"
+            width={width / 5}
+            style={{ position: "absolute", zIndex: -100, bottom: 0 }}
+          ></img>
+          {height > 700 && (
+            <div>
+              {/* webdeveloper: bottom */}
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/84e4e2db-d7aa-4612-5282-9de4e74e2b00/public"
+                alt="contact bg"
+                width={width / 3}
+                style={{
+                  position: "absolute",
+                  zIndex: -100,
+                  bottom: 0,
+                  left: width / 4,
+                }}
+              ></img>
+            </div>
+          )}
+
+          {/* art director: right */}
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/e79a3f1a-8140-4caa-c390-5d48819b3400/public"
+            alt="contact bg"
+            width={width / 5}
+            style={{
+              position: "absolute",
+              zIndex: -100,
+              top: "35%",
+              right: 0,
+            }}
+          ></img>
+        </div>
+      )}
+      {/* end contact decors----------------------------- */}
+
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
@@ -295,13 +376,13 @@ export default function ContactMain() {
         <HideableDrawer />
       </Box>
       {/* Icon picture */}
-      <Box sx={{ position: "absolute", left: "calc(50% - 175px)", top: "15%" }}>
+      <Box sx={{ position: "absolute", left: "calc(50% - 250px)" }}>
         <img
           src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/a892f4ab-5495-42ad-1efa-441c10677c00/public"
           alt="blog icon"
           style={{
-            width: "350px",
-            height: "350px",
+            width: "500px",
+            height: "500px",
           }}
         ></img>
       </Box>
@@ -318,7 +399,7 @@ export default function ContactMain() {
       >
         {/* This Box is for clicking and open the email sender */}
         <Box p={2}>
-          <Typography sx={{ fontFamily: useFont.bold, fontSize: 20 }}>
+          <Typography sx={{ fontFamily: useFont.bold, fontSize: 25 }}>
             Click to Contact
           </Typography>
         </Box>
