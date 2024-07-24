@@ -1,9 +1,24 @@
 import { Box } from "@mui/material";
-import React from "react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import CBAppBar from "../../../utils/CBAppBar";
+import LanguageIcon from "../../../utils/LanguageIcon";
 
 export default function BlogMain() {
-  return (
+  // true: basket, false: index
+  const [basket, setBasket] = useState(true);
+
+  const handleCloseBasket = () => {
+    setBasket(false);
+  };
+
+  const handleOpenBasket = () => {
+    setBasket(true);
+  };
+
+  return basket ? (
+    // basket page:
+    // base div with bg
     <Box
       height="100vh"
       style={{
@@ -13,7 +28,82 @@ export default function BlogMain() {
         backgroundSize: "300px auto",
       }}
     >
-      <CBAppBar></CBAppBar>
+      {/* app bar */}
+      <CBAppBar />
+      {/* basket */}
+      <Box
+        sx={{
+          height: "calc(100% - 130px)",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <motion.div
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.15, originX: 0.5, originY: 0.5 }}
+          whileTap={{ scale: 1 }}
+          onClick={handleCloseBasket}
+          style={{ transformOrigin: "center" }}
+        >
+          <img
+            src="pics/WEB_image/blog/basket.png"
+            alt="basket"
+            height="300px"
+            width="auto"
+          />
+        </motion.div>
+      </Box>
+    </Box>
+  ) : (
+    // selector view
+    <Box
+      height="100vh"
+      style={{
+        backgroundColor: "#FFFCC4",
+      }}
+    >
+      {/* app bar */}
+      <CBAppBar />
+      {/* blog back icon */}
+      <Box sx={{ marginLeft: "3%" }}>
+        <motion.div
+          whileHover={{ scale: 1.1, originX: 0.5, originY: 0.5 }}
+          whileTap={{ scale: 1 }}
+          style={{ width: "340px", transformOrigin: "center" }}
+          onClick={handleOpenBasket}
+        >
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/6b68130c-9a2b-40bb-b971-ddb32b99b200/public"
+            alt="blog icon"
+            height="80px"
+            width="auto"
+          />
+          <img
+            src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/96d5ae81-cfb3-4e45-5687-ae04972f8800/public"
+            alt="blog icon"
+            height="250px"
+            width="auto"
+          />
+        </motion.div>
+      </Box>
+      {/* Language Icon */}
+      <motion.div
+        whileHover={{
+          scale: 1.2,
+          originX: 0.5,
+          originY: 0.5,
+        }}
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          left: "3%",
+          transformOrigin: "center",
+        }}
+      >
+        <LanguageIcon></LanguageIcon>
+      </motion.div>
     </Box>
   );
 }
