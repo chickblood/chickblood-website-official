@@ -42,8 +42,7 @@ export default function BlogMain() {
       >
         <motion.div
           initial={{ scale: 1 }}
-          whileHover={{ scale: 1.15, originX: 0.5, originY: 0.5 }}
-          whileTap={{ scale: 1 }}
+          whileHover={{ scale: 1.15 }}
           onClick={handleCloseBasket}
           style={{ transformOrigin: "center" }}
         >
@@ -69,10 +68,10 @@ export default function BlogMain() {
       {/* blog back icon */}
       <Box sx={{ marginLeft: "3%" }}>
         <motion.div
-          whileHover={{ scale: 1.1, originX: 0.5, originY: 0.5 }}
-          whileTap={{ scale: 1 }}
-          style={{ width: "340px", transformOrigin: "center" }}
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.2 }}
           onClick={handleOpenBasket}
+          style={{ width: "340px", transformOrigin: "center" }}
         >
           <img
             src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/6b68130c-9a2b-40bb-b971-ddb32b99b200/public"
@@ -92,8 +91,6 @@ export default function BlogMain() {
       <motion.div
         whileHover={{
           scale: 1.2,
-          originX: 0.5,
-          originY: 0.5,
         }}
         style={{
           position: "absolute",
