@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useWindowSize from "../hooks/useWindowSize";
 
 function HomePage() {
-  const { width, height } = useWindowSize();
+  const { width } = useWindowSize();
   console.log(width);
   return (
     // Base div with background image. on repeat, full cover.
@@ -29,27 +29,31 @@ function HomePage() {
         }}
       >
         {/* Rita with the poster */}
-        <motion.div
-          whileHover={{
-            scale: 1.05,
-            transition: { ease: "easeOut", duration: 0.2 },
-          }}
+        <Box
           style={{
             position: "absolute",
             height: "100%",
-            width: "auto",
-            marginLeft: "25%",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <img
-            src="pics/WEB_image/homepage/rita.png"
-            alt="rita"
-            style={{
-              height: "100%",
-              width: "auto",
+          <motion.div
+            whileHover={{
+              scale: 1.05,
+              transition: { ease: "easeOut", duration: 0.2 },
             }}
-          />
-        </motion.div>
+          >
+            <img
+              src="pics/WEB_image/homepage/rita.png"
+              alt="rita"
+              style={{
+                height: "100%",
+                width: "auto",
+              }}
+            />
+          </motion.div>
+        </Box>
         {/* Plant */}
         {width > 1000 && (
           <motion.div
