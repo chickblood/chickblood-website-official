@@ -20,9 +20,9 @@ function HomePage() {
   const handleCloseLoader = () => {
     setOpenLoader(false);
   };
-  const handleOpenLoader = () => {
-    setOpenLoader(true);
-  };
+  // const handleOpenLoader = () => {
+  //   setOpenLoader(true);
+  // };
   const loadImage = (src) => {
     console.log("Image loading.");
     return new Promise((resolve, reject) => {
