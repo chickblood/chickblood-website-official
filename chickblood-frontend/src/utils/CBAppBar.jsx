@@ -63,7 +63,7 @@ function CBAppBar() {
           }}
         >
           {/* WIDE toolbar containing all items */}
-          {width > 1000 ? (
+          {width > 1000 && (
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
                 {/* CB Logo, also home button */}
@@ -183,7 +183,8 @@ function CBAppBar() {
                 </Grid>
               </Grid>
             </Toolbar>
-          ) : (
+          )}
+          {width > 800 && width < 1000 && (
             // NARROW toolbar
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
@@ -298,6 +299,129 @@ function CBAppBar() {
                       src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/46e972c8-2262-4c86-b7c5-bcc813e47600/public"
                       alt="App Divider"
                       height="90px"
+                      style={{ marginTop: 10 }}
+                    ></img>
+                  </motion.div>
+                </Grid>
+              </Grid>
+            </Toolbar>
+          )}
+          {/* extremely narrow app bar */}
+          {width < 799 && (
+            // NARROW toolbar
+            <Toolbar disableGutters sx={{ width: "100%" }}>
+              <Grid container>
+                {/* home */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    whileHover={{ scale: 0.9 }}
+                    whileTap={{ scale: 1.3 }}
+                    onClick={() => {
+                      navigate("/home");
+                    }}
+                  >
+                    <img
+                      src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/6e53a9df-673d-4ebf-04c0-a68ac88d7700/public"
+                      alt="App Divider"
+                      height={0.1 * width}
+                      style={{ marginTop: 10 }}
+                    ></img>
+                  </motion.div>
+                </Grid>
+                {/* event nav */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    whileHover={{ scale: 0.9 }}
+                    whileTap={{ scale: 1.3 }}
+                    onClick={() => {
+                      navigate("/eventhome");
+                    }}
+                  >
+                    <img
+                      src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/0931e13a-9b82-4cb0-3d8f-452adc602e00/public"
+                      alt="App Divider"
+                      height={0.1 * width}
+                      style={{ marginTop: 10 }}
+                    ></img>
+                  </motion.div>
+                </Grid>
+                {/* contact */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    whileHover={{ scale: 0.9 }}
+                    whileTap={{ scale: 1.3 }}
+                    onClick={() => {
+                      navigate("/contact");
+                    }}
+                  >
+                    <img
+                      src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/52db8508-9328-417c-5626-c67197787400/public"
+                      alt="App Divider"
+                      height={0.1 * width}
+                      style={{ marginTop: 10 }}
+                    ></img>
+                  </motion.div>
+                </Grid>
+                {/* member */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    whileHover={{ scale: 0.9 }}
+                    whileTap={{ scale: 1.3 }}
+                    onClick={() => {
+                      navigate("/member");
+                    }}
+                  >
+                    <img
+                      src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/fddd5356-25c7-4dac-b307-bcdff5b95e00/public"
+                      alt="App Divider"
+                      height={0.1 * width}
+                      style={{ marginTop: 10 }}
+                    ></img>
+                  </motion.div>
+                </Grid>
+                {/* blog */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    whileHover={{ scale: 0.9 }}
+                    whileTap={{ scale: 1.3 }}
+                    onClick={() => {
+                      navigate("/blog");
+                    }}
+                  >
+                    <img
+                      src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/46e972c8-2262-4c86-b7c5-bcc813e47600/public"
+                      alt="App Divider"
+                      height={0.1 * width}
                       style={{ marginTop: 10 }}
                     ></img>
                   </motion.div>
