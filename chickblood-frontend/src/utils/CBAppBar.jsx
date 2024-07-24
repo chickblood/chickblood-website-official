@@ -26,21 +26,28 @@ function CBAppBar() {
           {width > 1000 ? (
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
-                <Grid
-                  item
-                  xs={4}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/CBLogoText.png"
-                    alt="App Divider"
+                {/* CB Logo, also home button */}
+                <Grid item xs={4}>
+                  <motion.div
+                    height={"100%"}
                     width={"100%"}
-                    minWidth="200px"
-                  ></img>
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    onClick={() => {
+                      navigate("/home");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/CBLogoText.png"
+                      alt="App Divider"
+                      width={"100%"}
+                      minWidth="200px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* Event Nav */}
                 <Grid item xs={2}>
