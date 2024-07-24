@@ -20,20 +20,30 @@ function CBAppBar() {
           }}
         >
           {/* WIDE toolbar containing all items */}
-          {width > 1200 ? (
+          {width > 1000 ? (
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
-                <Grid item xs={4.8}>
+                <Grid
+                  item
+                  xs={4}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <img
                     src="pics/WEB_image/AppBar/CBLogoText.png"
                     alt="App Divider"
-                    height="90px"
+                    // height="90px"
+                    width={"100%"}
+                    minWidth="200px"
                   ></img>
                 </Grid>
                 {/* Event Nav */}
                 <Grid
                   item
-                  xs={1.8}
+                  xs={2}
                   sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -49,7 +59,7 @@ function CBAppBar() {
                 {/* Contact Nav */}
                 <Grid
                   item
-                  xs={1.8}
+                  xs={2}
                   sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -65,7 +75,7 @@ function CBAppBar() {
                 {/* Member Nav */}
                 <Grid
                   item
-                  xs={1.8}
+                  xs={2}
                   sx={{
                     display: "flex",
                     justifyContent: "center",
@@ -81,7 +91,7 @@ function CBAppBar() {
                 {/* Blog Nav */}
                 <Grid
                   item
-                  xs={1.8}
+                  xs={2}
                   sx={{
                     display: "flex",
                     justifyContent: "center",
