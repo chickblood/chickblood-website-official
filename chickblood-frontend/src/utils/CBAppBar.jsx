@@ -27,15 +27,18 @@ function CBAppBar() {
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
                 {/* CB Logo, also home button */}
-                <Grid item xs={4}>
+                <Grid
+                  item
+                  xs={4}
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <motion.div
                     height="100%"
                     width="100%"
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
                     whileHover={{ scale: 1.1 }}
                     onClick={() => {
                       navigate("/home");
@@ -143,8 +146,30 @@ function CBAppBar() {
             // NARROW toolbar
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
+                {/* home */}
+                <Grid item xs={2.4}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/home");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/home_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
+                </Grid>
                 {/* event nav */}
-                <Grid item xs={3}>
+                <Grid item xs={2.4}>
                   <motion.div
                     height={"100%"}
                     width={"100%"}
@@ -166,7 +191,7 @@ function CBAppBar() {
                   </motion.div>
                 </Grid>
                 {/* contact */}
-                <Grid item xs={3}>
+                <Grid item xs={2.4}>
                   <motion.div
                     height={"100%"}
                     width={"100%"}
@@ -188,7 +213,7 @@ function CBAppBar() {
                   </motion.div>
                 </Grid>
                 {/* member */}
-                <Grid item xs={3}>
+                <Grid item xs={2.4}>
                   <motion.div
                     height={"100%"}
                     width={"100%"}
@@ -210,7 +235,7 @@ function CBAppBar() {
                   </motion.div>
                 </Grid>
                 {/* blog */}
-                <Grid item xs={3}>
+                <Grid item xs={2.4}>
                   <motion.div
                     height={"100%"}
                     width={"100%"}
