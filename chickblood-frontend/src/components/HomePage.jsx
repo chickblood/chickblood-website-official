@@ -1,12 +1,13 @@
 import { Box } from "@mui/material";
-import React from "react";
-import CBAppBar from "../utils/CBAppBar";
 import { motion } from "framer-motion";
+import React from "react";
 import useWindowSize from "../hooks/useWindowSize";
+import CBAppBar from "../utils/CBAppBar";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const { width } = useWindowSize();
-  console.log(width);
+  const navigate = useNavigate();
   return (
     // Base div with background image. on repeat, full cover.
     <Box
@@ -40,8 +41,15 @@ function HomePage() {
         >
           <motion.div
             whileHover={{
-              scale: 1.05,
+              scale: 1.1,
               transition: { ease: "easeOut", duration: 0.2 },
+            }}
+            style={{
+              display: "inline-block",
+              transformOrigin: "bottom center",
+            }}
+            onClick={() => {
+              navigate("/event");
             }}
           >
             <img
