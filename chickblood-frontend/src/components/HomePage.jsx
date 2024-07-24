@@ -5,11 +5,13 @@ import useWindowSize from "../hooks/useWindowSize";
 import CBAppBar from "../utils/CBAppBar";
 import { useNavigate } from "react-router-dom";
 import LoadingPage from "../utils/LoadingPage";
+import LanguageIcon from "../utils/LanguageIcon";
 
 const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/616c50e0-6502-4279-27e5-4b9c4b379000/public", // background image, office
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/b6134cb0-0790-4272-b6c8-09523df6a000/public", // rita holding poster
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/05ccfda8-59c2-4688-8f74-2c27f103b000/public", // plant
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/38d51d5c-ebc9-4466-079c-8852ac22fb00/public", // language icon
 ];
 
 function HomePage() {
@@ -132,6 +134,19 @@ function HomePage() {
           </motion.div>
         )}
         {/* Language Icon */}
+        <motion.div
+          whileHover={{
+            scale: 1.2,
+            transition: { ease: "easeOut", duration: 0.2 },
+          }}
+          style={{
+            position: "absolute",
+            bottom: "5%",
+            left: "3%",
+          }}
+        >
+          <LanguageIcon></LanguageIcon>
+        </motion.div>
       </Box>
     </Box>
   );
