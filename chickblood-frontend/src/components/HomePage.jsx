@@ -93,7 +93,7 @@ function HomePage() {
               transformOrigin: "bottom center",
             }}
             onClick={() => {
-              navigate("/event");
+              navigate("/eventhome");
             }}
           >
             <img

@@ -29,8 +29,8 @@ function CBAppBar() {
                 {/* CB Logo, also home button */}
                 <Grid item xs={4}>
                   <motion.div
-                    height={"100%"}
-                    width={"100%"}
+                    height="100%"
+                    width="100%"
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -61,7 +61,7 @@ function CBAppBar() {
                     }}
                     whileHover={{ scale: 1.4 }}
                     onClick={() => {
-                      navigate("/event");
+                      navigate("/eventhome");
                     }}
                   >
                     <img
@@ -155,7 +155,7 @@ function CBAppBar() {
                     }}
                     whileHover={{ scale: 1.4 }}
                     onClick={() => {
-                      navigate("/event");
+                      navigate("/eventhome");
                     }}
                   >
                     <img
