@@ -4,9 +4,12 @@ import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
 import useWindowSize from "../hooks/useWindowSize";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 function CBAppBar() {
   const { width } = useWindowSize();
+  const navigate = useNavigate();
   return (
     <Box sx={{ minHeight: "100px" }}>
       <AppBar position="static" elevation={0}>
@@ -35,74 +38,97 @@ function CBAppBar() {
                   <img
                     src="pics/WEB_image/AppBar/CBLogoText.png"
                     alt="App Divider"
-                    // height="90px"
                     width={"100%"}
                     minWidth="200px"
                   ></img>
                 </Grid>
                 {/* Event Nav */}
-                <Grid
-                  item
-                  xs={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/event_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={2}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/event");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/event_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* Contact Nav */}
-                <Grid
-                  item
-                  xs={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/contact_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={2}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/contact");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/contact_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* Member Nav */}
-                <Grid
-                  item
-                  xs={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/member_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={2}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/member");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/member_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* Blog Nav */}
-                <Grid
-                  item
-                  xs={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/blog_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={2}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/blog");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/blog_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
               </Grid>
             </Toolbar>
@@ -111,68 +137,92 @@ function CBAppBar() {
             <Toolbar disableGutters sx={{ width: "100%" }}>
               <Grid container>
                 {/* event nav */}
-                <Grid
-                  item
-                  xs={3}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/event_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={3}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/event");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/event_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* contact */}
-                <Grid
-                  item
-                  xs={3}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/contact_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={3}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/contact");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/contact_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* member */}
-                <Grid
-                  item
-                  xs={3}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/member_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={3}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/member");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/member_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
                 {/* blog */}
-                <Grid
-                  item
-                  xs={3}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="pics/WEB_image/AppBar/blog_nav.png"
-                    alt="App Divider"
-                    height="90px"
-                  ></img>
+                <Grid item xs={3}>
+                  <motion.div
+                    height={"100%"}
+                    width={"100%"}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    whileHover={{ scale: 1.4 }}
+                    onClick={() => {
+                      navigate("/blog");
+                    }}
+                  >
+                    <img
+                      src="pics/WEB_image/AppBar/blog_nav.png"
+                      alt="App Divider"
+                      height="90px"
+                    ></img>
+                  </motion.div>
                 </Grid>
               </Grid>
             </Toolbar>
