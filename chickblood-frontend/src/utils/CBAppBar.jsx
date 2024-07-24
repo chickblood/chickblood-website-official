@@ -7,10 +7,9 @@ import useWindowSize from "../hooks/useWindowSize";
 
 function CBAppBar() {
   const { width } = useWindowSize();
-
   return (
     <Box sx={{ minHeight: "100px" }}>
-      <AppBar position="static">
+      <AppBar position="static" elevation={0}>
         <Container
           sx={{
             minHeight: "100px",
