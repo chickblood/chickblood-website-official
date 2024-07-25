@@ -15,6 +15,37 @@ export default function EventHome() {
     >
       {/* app bar */}
       <CBAppBar />
+      {/* entire section below app bar */}
+      <img
+        src="pics/WEB_image/event/notepad.png"
+        alt="notepad"
+        style={{
+          position: "absolute",
+          width: "20vw",
+          height: "auto",
+          marginLeft: "20vw",
+        }}
+      ></img>
+      <Box
+        sx={{
+          height: "calc(100% - 130px)",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {/* note pad */}
+        <img
+          src="pics/WEB_image/event/obj_group.png"
+          alt="notepad"
+          style={{
+            position: "absolute",
+            width: "auto",
+            height: "calc(100vh - 130px)",
+          }}
+        ></img>
+      </Box>
     </Box>
   );
 }
