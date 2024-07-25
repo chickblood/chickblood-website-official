@@ -69,7 +69,6 @@ export default function MemberPage() {
                 position: "relative",
                 zIndex: 1,
               }}
-              border={1}
             >
               <MemberCarousel fov={35} />
             </Box>
