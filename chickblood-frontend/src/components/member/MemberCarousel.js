@@ -12,8 +12,8 @@ import { useRef, useState } from "react";
 import * as THREE from "three";
 import "./util";
 
-export const MemberCarousel = () => (
-  <Canvas camera={{ position: [0, 0, 90], fov: 13 }} background="white">
+export const MemberCarousel = ({ fov }) => (
+  <Canvas camera={{ position: [0, 0, 90], fov: fov }} background="white">
     <fog attach="fog" args={["#a79", 8.5, 12]} />
     <ScrollControls pages={4} infinite>
       <Rig rotation={[0, 0, 0.15]}>
