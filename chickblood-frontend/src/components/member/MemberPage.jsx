@@ -33,7 +33,7 @@ export default function MemberPage() {
               zIndex: 1,
             }}
           >
-            <MemberCarousel />
+            <MemberCarousel fov={13} />
           </Box>
         </Box>
       ) : (
@@ -63,15 +63,15 @@ export default function MemberPage() {
           >
             <Box
               sx={{
-                height: "60vw",
-                width: "90vw",
+                height: "100vh",
+                width: "100vw",
                 margin: "0 auto",
                 position: "relative",
                 zIndex: 1,
               }}
               border={1}
             >
-              <MemberCarousel />
+              <MemberCarousel fov={35} />
             </Box>
           </Box>
         </Box>
