@@ -13,7 +13,7 @@ import * as THREE from "three";
 import "./util";
 
 export const MemberCarousel = () => (
-  <Canvas camera={{ position: [0, 0, 100], fov: 15 }} background="white">
+  <Canvas camera={{ position: [0, 0, 90], fov: 13 }} background="white">
     <fog attach="fog" args={["#a79", 8.5, 12]} />
     <ScrollControls pages={4} infinite>
       <Rig rotation={[0, 0, 0.15]}>
