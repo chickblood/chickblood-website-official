@@ -14,7 +14,7 @@ import "./util";
 
 export const MemberCarousel = ({ fov }) => (
   <Canvas camera={{ position: [0, 0, 90], fov: fov }} background="white">
-    <fog attach="fog" args={["#a79", 8.5, 12]} />
+    <fog attach="fog" args={["#a79", 8.5, 13]} />
     <ScrollControls pages={4} infinite>
       <Rig rotation={[0, 0, 0.15]}>
         <Carousel />
@@ -117,7 +117,7 @@ function Card({ url, ...props }) {
       0.2,
       delta
     );
-    easing.damp(ref.current.material, "zoom", hovered ? 1 : 1.1, 0.2, delta); // 1.1 is the current zoom ratio
+    easing.damp(ref.current.material, "zoom", hovered ? 0.9 : 1, 0.5, delta);
   });
   return (
     <Image
