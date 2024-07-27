@@ -16,6 +16,7 @@ import "./translation/i18n";
 import CustomCursor from "./utils/CustomCursor";
 import ContactPage from "./components/contact/ContactPage";
 import EventHome from "./components/events/EventHome";
+import GenerationalBruise from "./components/blog/generationalBruise/GenerationalBruise";
 
 function Layout({ children }) {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/contact" element={<ContactMain />} />
             <Route path="/eventhome" element={<EventHome />} />
             <Route path="/contactold" element={<ContactPage />} />
+            <Route path="/blog/genbruise" element={<GenerationalBruise />} />
           </Route>
           <Route path="/playground" element={<Playground />} />
           <Route path="/falling" element={<FallingTest />} />
