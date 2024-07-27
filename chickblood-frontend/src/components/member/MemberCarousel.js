@@ -46,13 +46,13 @@ function Carousel({ radius = 1.4 }) {
     <>
       <Card
         key={0}
-        url="pics/chzaza_card.png"
+        url="/pics/member/chiyokoo.png"
         position={[Math.sin(0) * radius, 0, Math.cos(0) * radius]}
         rotation={[0, Math.PI, 0]}
       />
       <Card
         key={1}
-        url="pics/chzaza_card.png"
+        url="/pics/member/chzaza.png"
         position={[
           Math.sin(Math.PI / 3) * radius,
           0,
@@ -62,7 +62,7 @@ function Carousel({ radius = 1.4 }) {
       />
       <Card
         key={2}
-        url="pics/chzaza_card.png"
+        url="/pics/member/joshua.png"
         position={[
           Math.sin((2 * Math.PI) / 3) * radius,
           0,
@@ -72,13 +72,13 @@ function Carousel({ radius = 1.4 }) {
       />
       <Card
         key={3}
-        url="pics/chzaza_card.png"
+        url="/pics/member/rita.png"
         position={[Math.sin(Math.PI) * radius, 0, Math.cos(Math.PI) * radius]}
         rotation={[0, Math.PI + Math.PI, 0]}
       />
       <Card
         key={4}
-        url="pics/chzaza_card.png"
+        url="/pics/member/rolf.png"
         position={[
           Math.sin((4 * Math.PI) / 3) * radius,
           0,
@@ -88,7 +88,7 @@ function Carousel({ radius = 1.4 }) {
       />
       <Card
         key={5}
-        url="pics/chzaza_card.png"
+        url="/pics/member/tzuchi.png"
         position={[
           Math.sin((5 * Math.PI) / 3) * radius,
           0,
