@@ -41,12 +41,12 @@ function App() {
             <Route path="/contact" element={<ContactMain />} />
             <Route path="/eventhome" element={<EventHome />} />
             <Route path="/contactold" element={<ContactPage />} />
-            <Route path="/blog/genbruise" element={<GenerationalBruise />} />
           </Route>
           <Route path="/playground" element={<Playground />} />
           <Route path="/falling" element={<FallingTest />} />
           <Route path="/blog/issue1" element={<Issue1Main />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/blog/genbruise" element={<GenerationalBruise />} />
         </Routes>
       </ThemeProvider>
     </React.Fragment>
