@@ -47,6 +47,7 @@ function App() {
           <Route path="/falling" element={<FallingTest />} />
           <Route path="/blog/issue1" element={<Issue1Main />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/blog/genbruise" element={<GenerationalBruise />} />
         </Routes>
       </ThemeProvider>
     </React.Fragment>
