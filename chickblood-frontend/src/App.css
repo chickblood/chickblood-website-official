@@ -1,0 +1,14 @@
+body,
+a,
+button,
+[role="button"],
+.clickable {
+  cursor: none;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover,
+.clickable:hover {
+  cursor: none;
+}
