@@ -1,11 +1,12 @@
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useWindowSize from "../../hooks/useWindowSize";
 import CBAppBar from "../../utils/CBAppBar";
-import { useNavigate } from "react-router-dom";
-import LoadingPage from "../../utils/LoadingPage";
 import LanguageIcon from "../../utils/LanguageIcon";
+import LoadingPage from "../../utils/LoadingPage";
+import CustomCursor from "../../utils/CustomCursor";
 
 const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/616c50e0-6502-4279-27e5-4b9c4b379000/public", // background image, office
@@ -56,6 +57,7 @@ function HomePage() {
         backgroundSize: "contain",
       }}
     >
+      {width > 500 ? <CustomCursor></CustomCursor> : <></>}
       <div>
         <LoadingPage
           openLoader={openLoader}
@@ -65,6 +67,7 @@ function HomePage() {
       </div>
       {/* Top App Bar */}
       <CBAppBar />
+
       {/* Box for three img components */}
       <Box
         position={"relative"}
@@ -74,38 +77,78 @@ function HomePage() {
         }}
       >
         {/* Rita with the poster */}
-        <Box
-          style={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <motion.div
-            whileHover={{
-              scale: 1.1,
-              transition: { ease: "easeOut", duration: 0.2 },
-            }}
+        {width > 500 ? (
+          // desktop view for rita
+          <Box
             style={{
-              display: "inline-block",
-              transformOrigin: "bottom center",
-            }}
-            onClick={() => {
-              navigate("/eventhome");
+              position: "absolute",
+              height: "100%",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
             }}
           >
-            <img
-              src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/131fc250-1676-4bf9-25b0-665c4e47dc00/public"
-              alt="rita"
-              style={{
-                height: "100%",
-                width: "auto",
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+                transition: { ease: "easeOut", duration: 0.2 },
               }}
-            />
-          </motion.div>
-        </Box>
+              style={{
+                display: "inline-block",
+                transformOrigin: "bottom center",
+              }}
+              onClick={() => {
+                navigate("/eventhome");
+              }}
+            >
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/131fc250-1676-4bf9-25b0-665c4e47dc00/public"
+                alt="rita"
+                style={{
+                  height: "100%",
+                  width: "auto",
+                }}
+              />
+            </motion.div>
+          </Box>
+        ) : (
+          // mobile view for rita with the poster
+          <Box
+            style={{
+              position: "absolute",
+              height: "100dvh",
+              width: "100%",
+            }}
+          >
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+                transition: { ease: "easeOut", duration: 0.2 },
+              }}
+              style={{
+                display: "inline-block",
+                transformOrigin: "bottom center",
+                position: "relative",
+                height: "100dvh",
+              }}
+              onClick={() => {
+                navigate("/eventhome");
+              }}
+            >
+              <img
+                src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/131fc250-1676-4bf9-25b0-665c4e47dc00/public"
+                alt="rita"
+                style={{
+                  position: "absolute",
+                  height: "90%",
+                  width: "auto",
+                  transform: "translateX(-25%)",
+                }}
+              />
+            </motion.div>
+          </Box>
+        )}
+
         {/* Plant */}
         {width > 1000 && (
           <motion.div
@@ -132,19 +175,35 @@ function HomePage() {
           </motion.div>
         )}
         {/* Language Icon */}
-        <motion.div
-          whileHover={{
-            scale: 1.2,
-            transition: { ease: "easeOut", duration: 0.2 },
-          }}
-          style={{
-            position: "absolute",
-            bottom: "5%",
-            left: "3%",
-          }}
-        >
-          <LanguageIcon></LanguageIcon>
-        </motion.div>
+        {width > 500 ? (
+          <motion.div
+            whileHover={{
+              scale: 1.2,
+              transition: { ease: "easeOut", duration: 0.2 },
+            }}
+            style={{
+              position: "absolute",
+              bottom: "5%",
+              left: "3%",
+            }}
+          >
+            <LanguageIcon></LanguageIcon>
+          </motion.div>
+        ) : (
+          <motion.div
+            whileHover={{
+              scale: 1.2,
+              transition: { ease: "easeOut", duration: 0.2 },
+            }}
+            style={{
+              position: "absolute",
+              top: "3%",
+              left: "3%",
+            }}
+          >
+            <LanguageIcon></LanguageIcon>
+          </motion.div>
+        )}
       </Box>
     </Box>
   );

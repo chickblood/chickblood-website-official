@@ -55,7 +55,7 @@ function CBAppBar() {
       <AppBar position="static" elevation={0}>
         <Container
           sx={{
-            minHeight: "100px",
+            minHeight: "50px",
             minWidth: "100%",
             bgcolor: "#F9E57A",
             display: "flex",
@@ -89,7 +89,7 @@ function CBAppBar() {
                       src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/4f5711f3-e2be-4903-b1b2-625161edf100/public"
                       alt="App Divider"
                       width={"100%"}
-                      minWidth="200px"
+                      minwidth="200px"
                     ></img>
                   </motion.div>
                 </Grid>
