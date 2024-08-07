@@ -26,13 +26,14 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage />} />
+
           <Route path="/member" element={<MemberPage />} />
           <Route path="/blog" element={<BlogMain />} />
           <Route path="/contact" element={<ContactMain />} />
           <Route path="/eventhome" element={<EventHome />} />
           <Route path="/blog/genbruise" element={<GenerationalBruise />} />
         </Route>
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </React.Fragment>
   );
