@@ -1,5 +1,12 @@
 import React from "react";
+import { Typography } from "@mui/material";
+import useFontFamily from "./hooks/useFontFamily";
 
 export default function App() {
-  return <div>Chickblood</div>;
+  const useFont = useFontFamily();
+  return (
+    <div>
+      <Typography sx={{ fontFamily: useFont.bold }}>Chickblood</Typography>
+    </div>
+  );
 }
