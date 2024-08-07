@@ -13,6 +13,7 @@ const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/6b68130c-9a2b-40bb-b971-ddb32b99b200/public", // back btn
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/96d5ae81-cfb3-4e45-5687-ae04972f8800/public", // blog icon
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/18bd550e-a03d-437b-29b7-fc2f99fc3a00/public", // basket pic
+  "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/db64d861-5f6c-434d-4ce1-eaa048fbc600/public", // generational bruise icon
 ];
 
 export default function BlogMain() {
@@ -150,7 +151,7 @@ export default function BlogMain() {
             }}
           >
             <img
-              src="/pics/gb.png"
+              src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/db64d861-5f6c-434d-4ce1-eaa048fbc600/public"
               alt="generational bruise"
               style={{
                 height: "auto",
