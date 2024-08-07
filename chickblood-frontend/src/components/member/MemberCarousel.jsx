@@ -142,7 +142,9 @@ function Card({ url, ...props }) {
 
 function Banner(props) {
   const ref = useRef();
-  const texture = useTexture("src/assets/pics/cb2024.png");
+  const texture = useTexture(
+    "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/a323193b-196b-49a1-c397-d9959b6f4700/public"
+  );
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
   const scroll = useScroll();
   useFrame((state, delta) => {
