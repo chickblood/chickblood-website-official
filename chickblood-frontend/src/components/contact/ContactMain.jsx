@@ -121,7 +121,7 @@ export default function ContactMain() {
 
     // clickable rectangles --------------------------------
     const tiktok = Bodies.rectangle(width / 2 - 250, 0, 50, 50, {
-      label: "https://www.instagram.com/chickblooood/",
+      label: "https://www.tiktok.com/@chickblood?_t=8oJBV0e6EYg&_r=1",
       restitution: 0.7,
       density: 0.5,
       render: {
