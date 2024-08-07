@@ -22,7 +22,6 @@ export default function EventHome() {
   //   setOpenLoader(true);
   // };
   const loadImage = (src) => {
-    console.log("Image loading.");
     return new Promise((resolve, reject) => {
       const img = new Image();
       img.src = src;

@@ -45,7 +45,7 @@ function LandingPage() {
     and navigates to next layer.
    */
   const handleSubmit = () => {
-    console.log(input);
+    // console.log(input);
     /* After desired interaction (such as mongoInsert), navigating to next home page. */
     navigate("/home");
   };

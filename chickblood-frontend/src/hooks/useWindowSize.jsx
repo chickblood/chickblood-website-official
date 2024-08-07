@@ -7,7 +7,7 @@ function useWindowSize() {
   });
 
   useEffect(() => {
-    console.log("Resizing to:", window.innerWidth, window.innerHeight); // Debug log
+    // console.log("Resizing to:", window.innerWidth, window.innerHeight); // Debug log
 
     const handleResize = () => {
       setSize({

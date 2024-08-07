@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/home/HomePage";
 import GenerationalBruise from "./components/blog/generationalBruise/GenerationalBruise";
 import BlogMain from "./components/blog/index/BlogMain";
 import ContactMain from "./components/contact/ContactMain";
