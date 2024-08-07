@@ -3,10 +3,12 @@ import React from "react";
 import useFontFamily from "../../../hooks/useFontFamily";
 import CustomCursor from "../../../utils/CustomCursor";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function GenerationalBruise() {
   const useFont = useFontFamily();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   return (
     <div
       style={{
@@ -49,11 +51,11 @@ export default function GenerationalBruise() {
           </Typography>
         </BreadCrumbBox>
         <Typography>|</Typography>
-        <BreadCrumbBox>
+        {/* <BreadCrumbBox>
           <Typography sx={{ fontFamily: useFont.bold }}>
             Issue 2: Dummy
           </Typography>
-        </BreadCrumbBox>
+        </BreadCrumbBox> */}
       </Box>
 
       <Box sx={{ display: "center", justifyContent: "center" }}>
@@ -79,7 +81,7 @@ export default function GenerationalBruise() {
             display: "block",
           }}
         >
-          {yehoshua}
+          {t("yehoshua")}
         </Typography>
       </Box>
     </div>
