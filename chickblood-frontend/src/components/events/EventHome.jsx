@@ -165,7 +165,7 @@ export default function EventHome() {
             />
           </Box>
           {/* ruanmuban */}
-          <div
+          <motion.div
             style={{
               position: "relative",
               width: "100%",
@@ -177,6 +177,14 @@ export default function EventHome() {
             }}
             onClick={() => {
               navigate("/eventcalendar");
+            }}
+            animate={{
+              scale: [0.9, 1.1, 0.9],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
             }}
           >
             <img
@@ -190,7 +198,7 @@ export default function EventHome() {
                 objectFit: "contain",
               }}
             />
-          </div>
+          </motion.div>
           {/* event icon and guizi */}
           <Grid container sx={{ height: "45%" }}>
             {/* guizi */}
