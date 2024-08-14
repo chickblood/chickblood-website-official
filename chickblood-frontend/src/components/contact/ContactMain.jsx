@@ -320,9 +320,9 @@ export default function ContactMain() {
         <img
           src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/c0ae9886-e48e-496f-88f8-a59461f44300/public"
           alt="contact bg"
-          height={height - 130}
+          height={height + 200}
           width={width}
-          style={{ position: "absolute", zIndex: -100 }}
+          style={{ position: "absolute", zIndex: -100, marginTop: -100 }}
         ></img>
         {width > 900 && (
           <div>
