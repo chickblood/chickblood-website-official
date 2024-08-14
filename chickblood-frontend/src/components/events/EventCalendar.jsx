@@ -6,6 +6,8 @@ import CBAppBar from "../../utils/CBAppBar";
 import CustomCursor from "../../utils/CustomCursor";
 import PageOne from "./calendar/PageOne";
 import PageTwo from "./calendar/PageTwo";
+import PageOneMobile from "./calendar/PageOneMobile";
+import PageTwoMobile from "./calendar/PageTwoMobile";
 
 export default function EventCalendar() {
   const { width } = useWindowSize();
@@ -57,7 +59,7 @@ export default function EventCalendar() {
           </Grid>
         </Box>
       ) : (
-        <Box sx={{ height: "100%", width: "100", zIndex: -100 }}>
+        <Box sx={{ height: "100%", width: "100%", zIndex: -100 }}>
           <Grid
             sx={{
               height: "calc(100% - 130px)",
@@ -68,7 +70,11 @@ export default function EventCalendar() {
               flexDirection: "column",
             }}
           >
-            {pageNum === 1 ? <PageOne></PageOne> : <PageTwo></PageTwo>}
+            {pageNum === 1 ? (
+              <PageOneMobile></PageOneMobile>
+            ) : (
+              <PageTwoMobile></PageTwoMobile>
+            )}
 
             <Box
               sx={{
