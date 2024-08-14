@@ -5,6 +5,7 @@ import CBAppBar from "../../utils/CBAppBar";
 import LoadingPage from "../../utils/LoadingPage";
 import useWindowSize from "../../hooks/useWindowSize";
 import CustomCursor from "../../utils/CustomCursor";
+import { useNavigate } from "react-router-dom";
 
 const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/7d4373f1-32e4-49aa-3f58-21390b23e400/public", // bg img
@@ -15,6 +16,7 @@ const imageUrls = [
 ];
 
 export default function EventHome() {
+  const navigate = useNavigate();
   const { width } = useWindowSize();
   /** Loader states and handle image preload */
   const [openLoader, setOpenLoader] = useState(true);
@@ -87,6 +89,9 @@ export default function EventHome() {
               left: "40vw",
               zIndex: 2,
               overflow: "visible",
+            }}
+            onClick={() => {
+              navigate("/eventcalendar");
             }}
           >
             <img
