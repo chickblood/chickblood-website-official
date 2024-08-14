@@ -162,7 +162,7 @@ export default function ContactMain() {
       },
     });
     const twitter = Bodies.rectangle(width / 2 + 50, 0, 50, 50, {
-      label: "https://www.instagram.com/chickblooood/",
+      label: "https://x.com/Chickblo0o0d",
       restitution: 0.7,
       density: 0.5,
       render: {
