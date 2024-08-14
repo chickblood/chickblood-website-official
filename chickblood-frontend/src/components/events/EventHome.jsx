@@ -175,6 +175,9 @@ export default function EventHome() {
               justifyContent: "center",
               alignItems: "center",
             }}
+            onClick={() => {
+              navigate("/eventcalendar");
+            }}
           >
             <img
               src="https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/10c5b2cc-00d0-4441-72d0-c066c03ddc00/public"
