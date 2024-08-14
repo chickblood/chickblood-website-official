@@ -248,7 +248,7 @@ export default function ContactMain() {
       tray_right,
     ]);
 
-    World.add(engine.world, [tiktok, insta, youtube, twitter, discord, xhs]);
+    World.add(engine.world, [tiktok, insta, youtube, twitter, xhs]); // discord to be added
 
     const mouse = Matter.Mouse.create(render.canvas);
     const mouseConstraint = Matter.MouseConstraint.create(engine, {
