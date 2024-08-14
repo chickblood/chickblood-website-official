@@ -1,16 +1,15 @@
+import RedoIcon from "@mui/icons-material/Redo";
 import { Box, Grid } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
+import useWindowSize from "../../hooks/useWindowSize";
 import CBAppBar from "../../utils/CBAppBar";
 import CustomCursor from "../../utils/CustomCursor";
-import useWindowSize from "../../hooks/useWindowSize";
 import PageOne from "./calendar/PageOne";
 import PageTwo from "./calendar/PageTwo";
 
 export default function EventCalendar() {
   const { width } = useWindowSize();
-  useEffect(() => {
-    console.log(width / 2);
-  }, [width]);
+  const [pageNum, setPageNum] = useState(1);
   return (
     <Box
       height="100vh"
@@ -22,13 +21,12 @@ export default function EventCalendar() {
         position: "relative",
       }}
     >
-      <CustomCursor></CustomCursor>
-
       <CBAppBar></CBAppBar>
 
       {/* Box containing two posters */}
       {width > 800 ? (
         <Box sx={{ height: "100%", width: "100", zIndex: -100 }}>
+          <CustomCursor></CustomCursor>
           <Grid container sx={{ height: "100%", width: "100%" }}>
             <Grid item xs={6}>
               <Box
@@ -59,7 +57,47 @@ export default function EventCalendar() {
           </Grid>
         </Box>
       ) : (
-        <div></div>
+        <Box sx={{ height: "100%", width: "100", zIndex: -100 }}>
+          <Grid
+            sx={{
+              height: "calc(100% - 130px)",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            {pageNum === 1 ? <PageOne></PageOne> : <PageTwo></PageTwo>}
+
+            <Box
+              sx={{
+                height: "100%",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              onClick={() => {
+                setPageNum(pageNum === 1 ? 2 : 1);
+              }}
+            >
+              <RedoIcon sx={{ fontSize: "50px" }}></RedoIcon>
+            </Box>
+          </Grid>
+
+          {/* <Box
+                sx={{
+                  height: "calc(100% - 130px)",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <PageTwo></PageTwo>
+              </Box> */}
+        </Box>
       )}
     </Box>
   );
