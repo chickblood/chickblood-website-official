@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useFontFamily from "../../hooks/useFontFamily";
 import useWindowSize from "../../hooks/useWindowSize";
+import useImagePreload from "../../hooks/useImagePreload";
 import CBAppBar from "../../utils/CBAppBar";
 import LoadingPage from "../../utils/LoadingPage";
 import EmailModal from "./EmailModal";
@@ -42,36 +43,11 @@ export default function ContactMain() {
   const { t } = useTranslation();
   const { width, height } = useWindowSize();
 
-  const [openLoader, setOpenLoader] = useState(true);
+  const openLoader = useImagePreload(imageUrls);
   // modal states
   const [openModal, setOpenModal] = React.useState(false);
   const handleOpenModal = () => setOpenModal(true);
   const handleCloseModal = () => setOpenModal(false);
-  /** Loader states and handle image preload */
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
   /**
    * Matter.js components
    */
@@ -412,7 +388,7 @@ export default function ContactMain() {
         {/* Loading Page */}
         <LoadingPage
           openLoader={openLoader}
-          handleClose={handleCloseLoader}
+          handleClose={() => {}}
         ></LoadingPage>
         {/* Drawer Button */}
         {/* <Box

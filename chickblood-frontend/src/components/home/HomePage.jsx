@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import useWindowSize from "../../hooks/useWindowSize";
+import useImagePreload from "../../hooks/useImagePreload";
 import CBAppBar from "../../utils/CBAppBar";
 import LanguageIcon from "../../utils/LanguageIcon";
 import LoadingPage from "../../utils/LoadingPage";
@@ -18,34 +19,7 @@ const imageUrls = [
 function HomePage() {
   const { width } = useWindowSize();
   const navigate = useNavigate();
-  /** Loader states and handle image preload */
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  // const handleOpenLoader = () => {
-  //   setOpenLoader(true);
-  // };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
   return (
     // Base div with background image. on repeat, full cover.
     <Box
@@ -61,7 +35,7 @@ function HomePage() {
       <div>
         <LoadingPage
           openLoader={openLoader}
-          handleClose={handleCloseLoader}
+          handleClose={() => {}}
         ></LoadingPage>
         {/* Rest of the page goes here. Use the image url in image components. */}
       </div>

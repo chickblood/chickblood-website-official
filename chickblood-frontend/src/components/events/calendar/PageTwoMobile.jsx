@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import LoadingPage from "../../../utils/LoadingPage";
+import useImagePreload from "../../../hooks/useImagePreload";
 
 const imageUrls = [
   "https://imagedelivery.net/luUTa6EFyOmipDilm9a3Jw/11dfe8e5-83df-455a-6e37-8ea75a45b100/public", //17
@@ -45,40 +46,14 @@ export default function PageTwo() {
     e.target.style.animation = "none";
   };
 
-  // image preload
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
 
   return (
     <Box sx={{ position: "relative", height: "500px", width: "auto" }}>
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
-        handleClose={handleCloseLoader}
+        handleClose={() => {}}
       ></LoadingPage>
 
       {/* Background Image */}

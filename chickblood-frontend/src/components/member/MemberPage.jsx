@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useWindowSize from "../../hooks/useWindowSize";
+import useImagePreload from "../../hooks/useImagePreload";
 import CBAppBar from "../../utils/CBAppBar";
 import LoadingPage from "../../utils/LoadingPage";
 import { MemberCarousel } from "./MemberCarousel";
@@ -16,38 +17,13 @@ const imageUrls = [
 
 export default function MemberPage() {
   const { width } = useWindowSize();
-  /** Loader states and handle image preload */
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
   return (
     <>
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
-        handleClose={handleCloseLoader}
+        handleClose={() => {}}
       ></LoadingPage>
       {width > 1000 ? (
         <Box

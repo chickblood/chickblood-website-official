@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import LoadingPage from "../../../utils/LoadingPage";
+import useImagePreload from "../../../hooks/useImagePreload";
 import { useNavigate } from "react-router-dom";
 
 const imageUrls = [
@@ -25,34 +26,7 @@ const imageUrls = [
 
 export default function PageOne() {
   const navigate = useNavigate();
-  // image preload
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  // const handleOpenLoader = () => {
-  //   setOpenLoader(true);
-  // };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
   // glitch effect
   const glitchAnimation = `
     @keyframes glitch {
@@ -80,7 +54,7 @@ export default function PageOne() {
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
-        handleClose={handleCloseLoader}
+        handleClose={() => {}}
       ></LoadingPage>
       {/* background image */}
       <img

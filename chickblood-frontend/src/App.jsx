@@ -1,19 +1,21 @@
-import React from "react";
+import { lazy, Suspense } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./components/home/HomePage";
-import GenerationalBruise from "./components/blog/generationalBruise/GenerationalBruise";
-import BlogMain from "./components/blog/index/BlogMain";
-import ContactMain from "./components/contact/ContactMain";
-import EventHome from "./components/events/EventHome";
-import MemberPage from "./components/member/MemberPage";
 import "./translation/i18n";
 import CustomCursor from "./utils/CustomCursor";
 import { Box } from "@mui/material";
-import LandingPage from "./components/LandingPage";
-import EventCalendar from "./components/events/EventCalendar";
-import DayOne from "./components/events/eventPages/DayOne";
-import ThatsMyPoster from "./components/events/eventPages/ThatsMyPoster";
+import LoadingPage from "./utils/LoadingPage";
+
+const LandingPage = lazy(() => import("./components/LandingPage"));
+const HomePage = lazy(() => import("./components/home/HomePage"));
+const GenerationalBruise = lazy(() => import("./components/blog/generationalBruise/GenerationalBruise"));
+const BlogMain = lazy(() => import("./components/blog/index/BlogMain"));
+const ContactMain = lazy(() => import("./components/contact/ContactMain"));
+const EventHome = lazy(() => import("./components/events/EventHome"));
+const MemberPage = lazy(() => import("./components/member/MemberPage"));
+const EventCalendar = lazy(() => import("./components/events/EventCalendar"));
+const DayOne = lazy(() => import("./components/events/eventPages/DayOne"));
+const ThatsMyPoster = lazy(() => import("./components/events/eventPages/ThatsMyPoster"));
 
 function Layout({ children }) {
   return (
@@ -25,7 +27,7 @@ function Layout({ children }) {
 }
 export default function App() {
   return (
-    <React.Fragment>
+    <Suspense fallback={<LoadingPage openLoader={true} handleClose={() => {}} />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<LandingPage />} />
@@ -40,6 +42,6 @@ export default function App() {
         <Route path="/dayone" element={<DayOne />} />
         <Route path="/thatsmypo" element={<ThatsMyPoster />} />
       </Routes>
-    </React.Fragment>
+    </Suspense>
   );
 }

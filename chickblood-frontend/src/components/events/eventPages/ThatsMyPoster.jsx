@@ -1,6 +1,7 @@
 import { Box, Breadcrumbs, Grid, Link, Typography } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import useWindowSize from "../../../hooks/useWindowSize";
+import useImagePreload from "../../../hooks/useImagePreload";
 import CBAppBar from "../../../utils/CBAppBar";
 import CustomCursor from "../../../utils/CustomCursor";
 import LoadingPage from "../../../utils/LoadingPage";
@@ -15,32 +16,7 @@ const imageUrls = [
 
 export default function ThatsMyPoster() {
   const { width } = useWindowSize();
-  // image preload
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
 
   // mobile view image scroll
 
@@ -72,7 +48,7 @@ export default function ThatsMyPoster() {
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
-        handleClose={handleCloseLoader}
+        handleClose={() => {}}
       ></LoadingPage>
       {width > 500 && <CustomCursor></CustomCursor>}
       {/* rest of the page, images and content */}

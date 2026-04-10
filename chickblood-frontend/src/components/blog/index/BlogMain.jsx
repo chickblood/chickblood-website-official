@@ -1,11 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CBAppBar from "../../../utils/CBAppBar";
 import LanguageIcon from "../../../utils/LanguageIcon";
 import LoadingPage from "../../../utils/LoadingPage";
 import { useNavigate } from "react-router-dom";
 import useFontFamily from "../../../hooks/useFontFamily";
+import useImagePreload from "../../../hooks/useImagePreload";
 import { useTranslation } from "react-i18next";
 import useWindowSize from "../../../hooks/useWindowSize";
 
@@ -32,32 +33,7 @@ export default function BlogMain() {
   const handleOpenBasket = () => {
     setBasket(true);
   };
-  /** Loader states and handle image preload */
-  const [openLoader, setOpenLoader] = useState(true);
-  const handleCloseLoader = () => {
-    setOpenLoader(false);
-  };
-  const loadImage = (src) => {
-    return new Promise((resolve, reject) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = resolve;
-      img.onerror = reject;
-    });
-  };
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        await Promise.all(imageUrls.map((url) => loadImage(url)));
-
-        setOpenLoader(false);
-      } catch (error) {
-        console.error("Error loading images:", error);
-      }
-    };
-
-    preloadImages();
-  }, []);
+  const openLoader = useImagePreload(imageUrls);
 
   return basket ? (
     // basket page:
@@ -74,7 +50,7 @@ export default function BlogMain() {
       {/* Loading Page */}
       <LoadingPage
         openLoader={openLoader}
-        handleClose={handleCloseLoader}
+        handleClose={() => {}}
       ></LoadingPage>
       {/* app bar */}
       <CBAppBar />
